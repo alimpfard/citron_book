@@ -10,4 +10,5 @@
 * [Expressions and Messages](expressions-and-messages.md)
 * [Control Flow](control-flow.md)
 * [Functions](functions.md)
+* [Intermission: Interpreter Commands](intermission-interpreter-commands.md)
 
