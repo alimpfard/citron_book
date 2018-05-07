@@ -1,3 +1,6 @@
-# My Awesome Book
+# Project Citron -- A totally-not-definitive Guide
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+This is an _obviously_ free book detailing the use of the Citron language; It serves as a tutorial for intermediate audience.
+
+This text assumes a basic knowledge about common programming terms and concepts.
+
