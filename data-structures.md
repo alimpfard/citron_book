@@ -4,8 +4,6 @@ There are three basic builtin _native_ structures in Citron - _Array_, _Tuple_ a
 
 which are further extended by non-native extensions - _Set_ and _Generator_
 
-
-
 ### Array
 
 `Array` is basically a list of values, implemented as a contiguous array.
@@ -20,7 +18,7 @@ or with a shorthand:
 
 #### Basic example
 
-```c
+```ruby
 var shoplist is Array < 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
 
 Pen writeln: 'There are ' + (shoplist count) + ' items to buy.'.
@@ -43,7 +41,6 @@ shoplist is shoplist sort: {:a:b
 Pen writeln: '%L' % [shoplist].
 
 Pen writeln: 'I have bought this trash now: %s, and I have these left to buy: %L' % [shoplist pop, shoplist].
-
 ```
 
 
