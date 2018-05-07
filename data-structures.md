@@ -18,7 +18,7 @@ or with a shorthand:
 
 #### Basic example
 
-```cpp
+```js
 var shoplist is Array < 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
 
 Pen writeln: 'There are ' + (shoplist count) + ' items to buy.'.
