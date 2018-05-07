@@ -6,4 +6,5 @@
 * [About Citron](about-citron.md)
 * [Installation](installation.md)
 * [Baby Steps!](baby-steps.md)
+* [Basics](basics.md)
 
