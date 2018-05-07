@@ -2,15 +2,11 @@
 
 Printing `Hello, World!` is always exciting and all, but it's never enough...maybe some inputs, processing, and some actually useful output is always preferred!
 
-
-
 ### Comments
 
-_Comments_ always span a signle line, beginning with the character `#` 
+_Comments_ always span a signle line, beginning with the character `#`
 
 \(Do note that the interactive interpreter will simply ignore _all_ comments, not even displaying them\)
-
-
 
 For example:
 
@@ -26,8 +22,6 @@ Pen writeln: 'HELLO!'.
 ```
 
 Some people like comments, so make sure to use them lots, okay?
-
-
 
 ### Literals
 
@@ -78,15 +72,22 @@ Also a way of embedding characters as hexadecimal is provided: `\x12`
 
 which will consume all the hexadecimal digits it can.
 
+### Tuples
 
+Contrary to what you might be used to, Citron's tuples are generated at _parse time_ and have a \(pretty much\) immutable structure
+
+They are created like so:
+
+```ruby
+[element0, element1] # A tuple with two elements. you can treat this like an Array object
+[] # An empty tuple
+```
 
 #### Object
 
 Anything and everything is an Object in Citron. _No Exceptions_
 
 \(This does not mean that Citron _enforces_ the idea of Object-Oriented Programming, but that is the most simple way of using the language\)
-
-
 
 ### Code Lines & Semantics
 
@@ -95,8 +96,4 @@ All the statements _must_ end in a dot \(`.`\)
 You may put all the statements in a single line \(why would you want to?\)
 
 Whitespace is ignored, and has virtually no meaning.
-
-
-
-
 
