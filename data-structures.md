@@ -36,7 +36,7 @@ shoplist each: {:idx:name
 Pen write: 'Such a bad list, let me sort it first: '.
 shoplist is shoplist sort: {:a:b 
     # now compare items a and b
-    ^(a length) > (b length). #Whichever has a longer name
+    ^(a length) > (b length). #Whichever has a longer name last
 }.
 Pen writeln: '%L' % [shoplist].
 
