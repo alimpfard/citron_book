@@ -85,7 +85,7 @@ They are created like so:
 
 #### Code Blocks
 
-A code block is just like a normal function, except the fact that it is _anonymous_. 
+A code block is just like a normal function, except the fact that it is _anonymous_.
 
 It may or may not be a closure.
 
@@ -100,8 +100,6 @@ A shorthand for a lexical code block with a single expression and at least one p
 
 which is translated to `{\(:param)+ ^expression.}` by the parser.
 
-
-
 #### Object
 
 Anything and everything is an Object in Citron. _No Exceptions_
@@ -115,4 +113,28 @@ All the statements _must_ end in a dot \(`.`\)
 You may put all the statements in a single line \(why would you want to?\)
 
 Whitespace is ignored, and has virtually no meaning.
+
+
+
+### Assignment
+
+There are three main forms of assignment in Citron, all of which have the general from `expr (:= | is) expr`
+
+1. assignment to an existing reference: `name is value`
+2. creation and assignment to a new reference: `(var | my) name is value`
+3. assignment by deconstruction: `type_var is value`, which we will get back to in another chapter.
+
+Every reference can optionally have three different modifiers \(Only one can be active at any given time\): 
+
+1. `var` : simply creates a new reference if no old ones exist, otherwise binds to them
+2. `my`   : creates or binds to a property of the current object.
+3. `const` : tries to capture a variable from the environment around the currrent object
+
+There is a shorthand for assignment to an object property \(`my property is value`\): `property => value`
+
+which will prove useful in certain points \(which we will explore in later chapters\).
+
+
+
+
 
