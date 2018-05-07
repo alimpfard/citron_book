@@ -7,4 +7,5 @@
 * [Installation](installation.md)
 * [Baby Steps!](baby-steps.md)
 * [Basics](basics.md)
+* [Expressions and Messages](expressions-and-messages.md)
 
