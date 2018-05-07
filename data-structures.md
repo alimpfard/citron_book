@@ -19,7 +19,7 @@ or with a shorthand:
 #### Basic example
 
 ```py
-var shoplist is Array < 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
+var shoplist := Array < 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
 
 Pen writeln: 'There are ' + (shoplist count) + ' items to buy.'.
 Pen writeln: 'Those items are: %:L' % [' ', shoplist].
