@@ -1,0 +1,81 @@
+# Baby Steps
+
+Clearly, every language requires a 'Hello, World!' program.
+
+There are mainly two ways of executing citron code:
+
+* with the main executable `ctr`
+* with the interpreter
+
+
+
+### Using the Interpreter Prompt
+
+Presumably, you have a terminal window open from back when you compiled citron from source, so switch to it,
+
+and start the interpreter by executing `citron` and pressing `<return>`
+
+
+
+Once you have started the interpreter, it will greet you with a nice-looking ascii art, 
+
+and the main prompt \(default `⠭⠕` \)
+
+Type `Pen writeln: 'Hello, World!'` followed by the return key.
+
+You shall see the magical words `Hello, World!` printed to the screen. \(and a `_` which signifies the object `Pen`\)
+
+Here's an example of what you might expect to see:
+
+
+
+```
+$ citron
+Terminal: 20x77 - 0x0
+  _____ _ _
+ / ____(_) |
+| |     _| |_ _ __ ___  _ __
+| |    | | __| '__/ _ \| '_ \  Project Citron
+| |____| | |_| | | (_) | | | |
+ \_____|_|\__|_|  \___/|_| |_|
+
+0.0.8-boehm-gc [GCC/G++ 7.3.1 20180406]
+⠭⠕ Pen writeln: 'Hello, World!'.
+Hello, World!
+_
+
+```
+
+#### How do I quit this interpreter?
+
+Type `:q` and press return.
+
+or if you really like punching in expressions, evaluate `Eval end`
+
+
+
+### Choosing an editor
+
+
+
+Currently, the only editor that has a full syntax highlighting option for citron is Atom, however, any editor with minimal Smalltalk syntax highlighting will do in a pinch.
+
+### Using a source file
+
+Back to coding.
+
+Open a new file \[I have used `main.ctr` for most of the files\] \(generic extension is `.ctr`\) and type this in:
+
+```ruby
+Pen writeln: 'Hello, World!'.
+```
+
+Then simply run `ctr` with the sole argument being the path to the file.
+
+```
+$ ctr main.ctr
+Hello, World!
+```
+
+
+
