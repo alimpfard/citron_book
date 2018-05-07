@@ -8,4 +8,5 @@
 * [Baby Steps!](baby-steps.md)
 * [Basics](basics.md)
 * [Expressions and Messages](expressions-and-messages.md)
+* [Control Flow](control-flow.md)
 
