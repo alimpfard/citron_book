@@ -24,3 +24,37 @@ If not enough arguments are passed, depending on the message, you might get eith
 
 
 
+Functions will behave just like code blocks in every aspect.
+
+### Varargs
+
+To collect all extra arguments in an array, you may provide a vararg `*argument_name` in the formal parameters
+
+```ruby
+fn is {:x:*ys
+    Pen writeln: 'I got some $$x and a bunch of $$ys'.
+}.
+```
+
+Evaluation of different callings:
+
+```ctr
+⠒⠂fn is {:x:*ys Pen writeln: 'I got some $$x and a bunch of $$ys'.}.
+_
+⠭⠕ fn applyTo: 1.
+I got some 1 and a bunch of Array new
+_
+⠭⠕ fn applyTo: 1 and: 2.
+I got some 1 and a bunch of Array ← 2
+_
+⠭⠕ fn applyAll: [1,2,3].
+I got some 1 and a bunch of Array ← 2 ; 3
+_
+⠭⠕ fn applyAll: [1].
+I got some 1 and a bunch of Array new
+_
+
+```
+
+
+
