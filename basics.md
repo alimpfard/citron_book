@@ -83,6 +83,25 @@ They are created like so:
 [] # An empty tuple
 ```
 
+#### Code Blocks
+
+A code block is just like a normal function, except the fact that it is _anonymous_. 
+
+It may or may not be a closure.
+
+There are two main code block types:
+
+* Basic code block -- which is always executed whenever it is required to. `{ (:param)* (expression.)* }`
+* Lexically scoped code block -- which always captures every value that is not in its formal parameters. `{\ (:param)* (expression.)* }`
+
+To return from a block, the return token `^` is used.
+
+A shorthand for a lexical code block with a single expression and at least one parameter \(quite like a lambda\) exists: `\(:param)+ expression`
+
+which is translated to `{\(:param)+ ^expression.}` by the parser.
+
+
+
 #### Object
 
 Anything and everything is an Object in Citron. _No Exceptions_
