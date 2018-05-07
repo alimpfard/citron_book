@@ -40,7 +40,7 @@ shoplist is shoplist sort: {:a:b
 }.
 Pen writeln: '%L' % [shoplist].
 
-Pen writeln: 'I have bought this trash now: %s, and I have these left to buy: %L' % [shoplist pop, shoplist].
+Pen writeln: 'I have bought this trash now: %s, and I have these left to buy: %L' % [shoplist shift, shoplist].
 ```
 
 
