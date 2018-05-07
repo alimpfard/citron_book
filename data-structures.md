@@ -18,7 +18,7 @@ or with a shorthand:
 
 #### Basic example
 
-```ruby
+```py
 var shoplist is Array < 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
 
 Pen writeln: 'There are ' + (shoplist count) + ' items to buy.'.
@@ -41,6 +41,7 @@ shoplist is shoplist sort: {:a:b
 Pen writeln: '%L' % [shoplist].
 
 Pen writeln: 'I have bought this trash now: %s, and I have these left to buy: %L' % [shoplist pop, shoplist].
+
 ```
 
 
