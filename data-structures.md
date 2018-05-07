@@ -28,7 +28,7 @@ Pen writeln: 'I also want some programming socks!'.
 
 shoplist push: 'programming socks'.
 
-Pen write: 'Now I have to buy all of these shticks: '.
+Pen write: 'Now I have to buy all of these shticks:\n'.
 shoplist each: {:idx:name
     Pen writeln: '\t$$idx - $$name'.
 }.
