@@ -37,11 +37,25 @@ cannot build number, extranous characters in string
 var is_palindrome is {:str
     ^str reverse = str.
 }.
-Pen write: 'What be your text? '.
 {^True.} whileTrue: {
+    Pen write: 'What be your text? '.
     Pen writeln: (is_palindrome applyTo: Program waitForInput trim, either: 'Yep, that\'s a palindrome' or: 'Nope, not a plaindrome').
 }.
 ```
+
+Profoundly, the output:
+
+```
+What be your text? str
+Nope, not a plaindrome
+What be your text? 1001
+Yep, that's a palindrome
+What be your text? []
+Nope, not a plaindrome
+^C
+```
+
+
 
 
 
