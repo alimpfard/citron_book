@@ -6,9 +6,7 @@ The basic input methods are available with the `Program::'input'`, `Program::'wa
 
 the more...sophisticated actions can be performed with `stdin` : `File special: 'sdin'` will give an auto-cleaning handle to it.
 
-
-
-### Input 
+### Input
 
 ```ruby
 var thing is Program waitForInput.
@@ -31,7 +29,6 @@ cannot build number, extranous characters in string
 #3 toNumber (test.ctr: 5)
 #2 + (test.ctr: 5)
 #1 writeln: (test.ctr: 5)
-
 ```
 
 #### Palindromes, because every language needs one
@@ -41,8 +38,9 @@ var is_palindrome is {:str
     ^str reverse = str.
 }.
 Pen write: 'What be your text? '.
-Pen writeln: (is_palindrome applyTo: Program waitForInput trim, either: 'Yep, that\'s a palindrome' or: 'Nope, not a plaindrome').
-
+{^True.} whileTrue: {
+    Pen writeln: (is_palindrome applyTo: Program waitForInput trim, either: 'Yep, that\'s a palindrome' or: 'Nope, not a plaindrome').
+}.
 ```
 
 
