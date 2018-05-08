@@ -12,4 +12,5 @@
 * [Functions](functions.md)
 * [Intermission: Interpreter Commands](intermission-interpreter-commands.md)
 * [Data Structures](data-structures.md)
+* [Objects](objects.md)
 
