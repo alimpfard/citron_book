@@ -55,7 +55,28 @@ Nope, not a plaindrome
 ^C
 ```
 
+### Files
 
+Files are fun things, they respond to `read`, `readBytes:`, `write:` and more!
+
+##### Opening a file
+
+You may implicitly open a file for reading or writing depending on the operation \(no need to state `open:`\)
+
+```ruby
+#You may write to it normally
+File new: 'test', write: 'This is a test\n' * 100.
+#Or open it explicitly
+File new: 'test', open: 'w+', write: 'This be a test\n', close. #Resources are cleaned by the garbage collector, but explicitly closing it is preferred
+```
+
+#### Special-purpose Files
+
+there are three special file descriptors `stdin` `stdout` and `stderr`
+
+You may access these by `File::'special:'`
+
+Note that `stdin` does _not_ allow writes, and the other two do not allow reads.
 
 
 
