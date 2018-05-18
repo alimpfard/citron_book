@@ -14,4 +14,5 @@
 * [Data Structures](data-structures.md)
 * [Objects](objects.md)
 * [IO](io.md)
+* [Exceptions](exceptions.md)
 
