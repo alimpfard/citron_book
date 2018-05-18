@@ -16,4 +16,5 @@
 * [IO](io.md)
 * [Exceptions](exceptions.md)
 * [Library/Imports](libraryimports.md)
+* [Standard Library](standard-library.md)
 
