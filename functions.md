@@ -36,6 +36,7 @@ fn is {:self:par
         ^self. #and it still references that block
     }.
 }. #self is implicitly filled, acts as if it never existed
+fn applyTo: 1024. #par gets assigned 1024
 ```
 
 ### Varargs
