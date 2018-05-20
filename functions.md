@@ -31,6 +31,10 @@ In order to mitigate the problem with `me` always referencing the current block,
 ```ruby
 fn is {:self:par
     Pen writeln: par.
+    #`self' here is a direct reference to this block
+    ^{
+        ^self. #and it still references that block
+    }.
 }. #self is implicitly filled, acts as if it never existed
 ```
 
