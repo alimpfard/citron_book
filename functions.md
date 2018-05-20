@@ -22,9 +22,17 @@ If not enough arguments are passed, depending on the message, you might get eith
 
 \(`CodeBlock::'applyAll:'` will throw an exception if more or less arguments are provided\)
 
-
-
 Functions will behave just like code blocks in every aspect.
+
+### The \`self' parameter
+
+In order to mitigate the problem with `me` always referencing the current block, you may simply add `self` as the first parameter to the block, like so:
+
+```ruby
+fn is {:self:par
+    Pen writeln: par.
+}. #self is implicitly filled, acts as if it never existed
+```
 
 ### Varargs
 
@@ -53,7 +61,6 @@ _
 ⠭⠕ fn applyAll: [1].
 I got some 1 and a bunch of Array new
 _
-
 ```
 
 
