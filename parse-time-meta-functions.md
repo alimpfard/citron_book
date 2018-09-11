@@ -83,3 +83,33 @@ var x is 123.
 
 
 
+Let's take a look at how PatternMatch's `match` function works
+
+```ruby
+{:self:ast
+
+var done is True.
+var ret is Nil.
+var cblk is thisBlock.
+ast each_v: {:__PMATCH_V0 # For each sub-tuple in the main tuple
+  __PMATCH_V0 is $!(__PMATCH_V0). #Parse the tuple
+  done is True.
+  ret is {
+    self unpack: $!(__PMATCH_V0 head). # Try to unpack the object
+    $!(__PMATCH_V0 tail init) all: {\:__PMATCH_V1 # Then assuming the unpacking worked, check all the guards (if any)
+      Reflect runHere: {^$!(__PMATCH_V1).} forObject: self arguments: [].
+    }, ifFalse: {
+      cblk error: 'guard fail'. # If the guard returned false, let this pmatch fail
+    }.
+    ^Reflect runHere: {^$!(__PMATCH_V0 last).} forObject: self arguments: []. # Assuming everything went well, run the last expression
+  } catch: {:e done is False. }, run. # if anything failed, move on through the tuple
+  done break. # otherwise, stop
+}.
+done ifFalse: { cblk error: 'non-exhaustive pattern match'. }. # if after going through the whole list, we didn't find a suitable match, raise an exception
+^ret. # return the value
+
+}.
+```
+
+
+
