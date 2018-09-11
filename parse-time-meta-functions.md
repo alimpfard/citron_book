@@ -52,6 +52,3 @@ Of course, this feels clunky, and looks weird, but there are more ways to deal w
 Through the use of the `declare` pragma, it is possible to create a function that does not evaluate its arguments before being invoked, but rather explicitly after.
 
 ### Example:
-```rb
-
-```
