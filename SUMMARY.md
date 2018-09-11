@@ -17,4 +17,5 @@
 * [Exceptions](exceptions.md)
 * [Library/Imports](libraryimports.md)
 * [Standard Library](standard-library.md)
+* [Meta-functions](parse-time-meta-functions.md)
 
