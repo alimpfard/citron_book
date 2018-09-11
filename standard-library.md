@@ -42,6 +42,19 @@ The current categories \(as of Citron 0.0.8\) are:
 * String : Nothing.
 * SwitchCase : Generate a map of alternatives and execute one of them.
 
+### The Functional category
+
+* Alias : common functions for common messages \(e.g. `+` as a polymorphic function\)
+* Applicative
+* * /Maybe -> The Maybe monad as an applicative
+* Category
+* * Array -> Arrays as composable objects
+  * Block -> Functions as composable objects
+* Monad : semi context-aware entities that wrap a state
+* TypeClass : The definition of all the above things, and a few common functions
+* PatternMatch : Adds a Object::'match:', and a helper `match` function
+* + More of this in its own page
+
 ### The Executable category
 
 * cpm : A package manager. read its help with `citron -m cpm`
@@ -57,9 +70,5 @@ This category is dedicated to interfacing foreign functions, and has a complemen
 * PackedArray : Contiguous Array with uniform native types
 * Signal : Handle or trade signals with other programs
 
-
-
 TODO: Finish this page
-
-
 

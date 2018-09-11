@@ -146,8 +146,6 @@ Hello, World
 (Map new) put:'Hello, World' at:'Hello', put:'2, 1' at:2, put:'3, 1' at:3, put:'4, (Map new) put:\':selfReference:\' at:4, put:\'1\' at:3, put:1 at:2, put:\'World\' at:\'Hello\'' at:4
 ```
 
-
-
 # TODO: Sets, Generators, more Strings, maybe mention Iterators
 
 

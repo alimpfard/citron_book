@@ -1,7 +1,5 @@
 ## Library / Imports
 
-
-
 ### The import Object
 
 Citron's answer to handling modular programs, is of course, the `import` Object.
@@ -16,8 +14,6 @@ you may also directly import ctr files the same way:
 
 `import path/to/file`
 
-
-
 There are a few rules to the import mechanism:
 
 * If a diretory is provided, there _must_ be a `main.ctr` file inside that directory
@@ -26,20 +22,17 @@ There are a few rules to the import mechanism:
 * Only the directly exported names inside the module are imported, unless explicitly requested \(more on this later\)
 * imported object will be added to the global scope of the program
 
-
-
 ### Importing something from the standard library
 
 The standard library is not very extensive, but it does have most of the essentials.
 
 Example:
 
-```smalltalk
+```ruby
 import Library/Data/Set/HashSet: 'HashSet'. # Will only import the object HashSet
 import Library/Data/Map. # Will import all the exported values in that module
+import Library/Functional/PatternMatch: \*. # Will import all the values in that module
 ```
-
-
 
 ### Importing specific names from a module
 
