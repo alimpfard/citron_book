@@ -52,3 +52,34 @@ Of course, this feels clunky, and looks weird, but there are more ways to deal w
 Through the use of the `declare` pragma, it is possible to create a function that does not evaluate its arguments before being invoked, but rather explicitly after.
 
 ### Example:
+
+```ruby
+#:declare lazyev then
+
+# These sorts of functions are always binary
+var letIn is {\:_x:_y
+    $!(_x). # Evaluate the first argument, and discard its value
+    $!(_y). # Evaluate the second argument, and return its value
+}.
+
+(var a is 123) `letIn` (a + 64). # => 187
+# which is equivalent to the following expression
+letIn applyAll: [$(var a is 123), $(a + 64)]. # => 187
+
+#:declare lazyev if-then
+
+# let's write if-then in a more elegant format
+var if-then is {\:if:then
+    $!(if) ifTrue: {
+        ^$!(then).
+    }.
+}.
+
+var x is 123.
+
+(x = 123) `if-then` (Pen writeln: 'x really is $$x'). # be careful not to shadow `x' in the if-then definition
+# -> x really is 123
+```
+
+
+
