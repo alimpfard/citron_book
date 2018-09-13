@@ -22,19 +22,19 @@ Examples for each follow:
 
 ### Basic messages for the Number objects
 
-* Unary `+`
+* Binary `+`
 
   * Adds something to a number
     * Normally operates on Strings and Numbers
   * `3 + 5` gives `8`. `3 + 'test'` gives `'3test'`
     * Note that in no possible scenario a string would be implicitly cast to a number.
 
-* Unary `-`
+* Binary `-`
 
   * Subtracts a number from another
   * `10 - 8` gives `2`
 
-* Unary `*`
+* Binary `*`
 
   * Multiplies a number by another
   * `2 * 3` gives `6`
@@ -76,8 +76,4 @@ The generic order of evaluation is
 4. and so on
 
 Parens are treated normally.
-
-
-
-
 
