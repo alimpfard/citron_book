@@ -43,7 +43,7 @@ A few useful meta commands:
 * `:set -printvs` disables the print of results (useful for big values)
 * `:p expression` print the value of expression
 * `:! ls` I dunno, I guess you might need the file listing fast 
-* `:!def wee \:args 'weeeee $$args'` these work as a fast macro too
+* `:!def wee \:args 'weeeee $$args'` these work as a fast meta-macro too
 
 
 Try to play with some of them!
