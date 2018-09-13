@@ -191,7 +191,7 @@ bf contains: 4. # => False
 bf contains: 'test'. # => True
 ```
 
-# TODO: Generators, more Strings, maybe mention Iterators
+# TODO: Generators, more Strings
 
 
 
