@@ -51,7 +51,8 @@ or if you really like punching in expressions, evaluate `Eval end`
 
 ### Choosing an editor
 
-Currently, the only editor that has a full syntax highlighting option for citron is Atom, however, any editor with minimal Smalltalk syntax highlighting will do in a pinch.
+Currently, Atom, TextMate and Sublime 3 syntax files are generated and maintained.
+However, minimal Smalltalk syntax highlighting will do in a pinch
 
 ### Using a source file
 
