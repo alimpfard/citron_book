@@ -226,7 +226,7 @@ var gen7 is gen4 fmap: \:_ gen0 copy. # make the elements of gen0. forever.
 
 gen7 inext. # => 4
 gen7 inext. # => 5
-(1..10) fmap: \:_ gen7 inext, toArray. # => Array ← 6 ; 7 ; 8 ; 9 ; 10 ; 5 ; 6 ; 7 ; 8 ; 9
+(1..10) fmap: \:_ gen7 inext, toArray. # => Array ← 6 ; 7 ; 8 ; 9 ; 10 ; 6 ; 7 ; 8 ; 9 ; 10
 
 # You can break in the middle of a mapping too, which will terminate the generator
 ```
