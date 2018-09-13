@@ -51,7 +51,7 @@ Tip:
 
 The method names are `>`, `<`, `>=:`, `<=:`, `=`, `!=:`
 
-equality _can_ be tested with the alias method `equals:`
+equality _can_ be tested with the alias method `equals:`, However, when overriding equality, only `=` must be overridden.
 
 ### Shortcuts for number manipulations
 
