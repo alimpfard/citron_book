@@ -47,5 +47,7 @@ The `import` object will try to import any name given to it in the following way
 4. Import a few names, specifying new names: `import path/to/module: { oldName => 'newName'. oldName2 => 'newName2'. }`
 5. Import all the symbols in a module: `import path/to/module: \*`
 
+    * `\*` is a Symbol, it is a kind of String that is allocated only once.
+
 
 
