@@ -22,6 +22,10 @@ There are a few rules to the import mechanism:
 * Only the directly exported names inside the module are imported, unless explicitly requested \(more on this later\)
 * imported object will be added to the global scope of the program
 
+You can change the name of the explicit imports by assigning them in a block \(see example below\)
+
+
+
 ### Importing something from the standard library
 
 The standard library is not very extensive, but it does have most of the essentials.
@@ -30,6 +34,7 @@ Example:
 
 ```ruby
 import Library/Data/Set/HashSet: 'HashSet'. # Will only import the object HashSet
+import Library/Data/Set/HashSet: { HashSet => 'Set'. }. # Will only import the object HashSet
 import Library/Data/Map. # Will import all the exported values in that module
 import Library/Functional/PatternMatch: \*. # Will import all the values in that module
 ```
