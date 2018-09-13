@@ -47,7 +47,7 @@ clearly everyone needs string formatting
 
 Two solutions are provided:
 
-* Embedding a variable inside the string: `'Hello, name !'`
+* Embedding a variable inside the string:
 
 * Using the format methods: `'Hello, %s!' % [name]`
 
