@@ -197,8 +197,6 @@ Generators are lazy list generators, they have a few helpful basic functionaliti
 
 `Number..Number` and `Number..Number..Number` exists as a literal \(see example\)
 
-
-
 ### Example
 
 ```ruby
@@ -233,7 +231,7 @@ gen7 inext. # => 5
 # You can break in the middle of a mapping too, which will terminate the generator
 ```
 
-# TODO: Generators, more Strings
+# TODO: more Strings
 
 
 
