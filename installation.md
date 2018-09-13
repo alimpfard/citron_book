@@ -7,6 +7,7 @@ Citron is meant to be used on UNIX-like systems, and as such it does not, and _w
 ## Binaries
 
 Basic binary builds are provided for Linux \(ELF x86\_64\) and Windows \(PE x86\_64\)
+You can get them from [the repository releases](https://github.com/alimpfard/citron/releases)
 
 ## Building From Source
 
