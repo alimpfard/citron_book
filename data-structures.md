@@ -263,7 +263,7 @@ var list2 is [x + y,, [1,2,3], [5,6,7]]. # => Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 
 var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
 
 # You can return any citron object
-var dispatch is Map fromArray: [ [x, {\:arg arg at: x.}],, 1..5].
+var dispatch is Map fromArray: [[x, {\:arg arg at: x.}],, 1..5].
 # => (Map new) put:([:Block]) at:5, put:([:Block]) at:4, put:([:Block]) at:3, put:([:Block]) at:2, put:([:Block]) at:1
 
 # Now call it!
