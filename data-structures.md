@@ -264,7 +264,6 @@ var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
 
 # You can return any citron object
 var dispatch is Map fromArray: [[x, {\:arg arg at: x.}],, 1..5]. # returns a 2-tuple of key and a block that calls its argument with that key
-
 # => (Map new) put:([:Block]) at:5, put:([:Block]) at:4, put:([:Block]) at:3, put:([:Block]) at:2, put:([:Block]) at:1
 
 # Now call it!
