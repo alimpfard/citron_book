@@ -6,8 +6,7 @@ Printing `Hello, World!` is always exciting and all, but it's never enough...may
 
 _Comments_ always span a signle line, beginning with the character `#`
 
-\(Do note that the interactive interpreter will simply ignore _all_ comments, not even displaying them\)
-
+\(Do note that the interactive interpreter will not allow comments\)
 For example:
 
 ```ruby
@@ -25,7 +24,7 @@ Some people like comments, so make sure to use them lots, okay?
 
 ### Literals
 
-An example of a literal is a number, like `5`, `3.14`, or a string `'Hello'`.
+An example of a literal is a number, like `5`, `3.14`, `0xAF` or a string `'Hello'`.
 
 #### Numbers
 
@@ -38,7 +37,7 @@ The only numeric type available to the programmer is `Number`, which can store u
 String literals are created in two ways:
 
 * Strings with processed escape codes -- which are enclosed in single quotes: `'Hello, world!\n`'
-* 'Raw' Strings, which are quoted literally \(mainly used for regular expressions\), enclosed in `?>` and `<?` : `?>\s\t\w<?`
+* 'Raw' Strings, which are quoted literally \(mainly used for regular expressions, or embedding other languages\), enclosed in `?>` and `<?` : `?>\s\t\w<?`
 
 Both of these can span multiple lines.
 
@@ -50,6 +49,7 @@ Two solutions are provided:
 
 * Embedding a variable inside the string: `'Hello, $$name !'`
 * Using the format methods: `'Hello, %s!' % [name]`
+* or the other format method: `'Hello, ${name}' %~: (Map fromArray: [['name', 'What']]`
 
 The first solution is used as a quick-and-dirty way to embed single variables inside a string, and are processed by the lexer to a string addition expression: `'Hello, ' + name + ' !'`
 
