@@ -191,6 +191,48 @@ bf contains: 4. # => False
 bf contains: 'test'. # => True
 ```
 
+# Generators
+
+Generators are lazy list generators, they have a few helpful basic functionalities as well.
+
+`Number..Number` and `Number..Number..Number` exists as a literal \(see example\)
+
+
+
+### Example
+
+```ruby
+# You can make a simple step generator with numbers:
+var gen0 is 0..10. # => [StepGenerator]
+# With a step value
+var gen1 is 0..2..10. # => [StepGenerator]
+
+# Or through messages to Generator
+var gen2 is Generator from: 0 to: 10.
+var gen3 is Generator from: 0 to: 10 step: 2.
+var gen4 is Generator repeat: Nil. # This will just make `Nil's forever, it's useful to map
+var gen5 is Generator elementsOf: [1,2,3,4]. # Makes a generator from a collection (Array,Map,String)
+
+# You can get the next value
+gen0 next. # => 0
+gen0 next. # => 1
+
+# You can map them to a new generator
+var gen6 is gen0 fmap: \:x x + 3.
+# Note that advancing one will advance the other too
+gen6 next. # => 5
+gen0 next. # => 3
+
+# You can return a generator from a mapping, and `inext' will expand it
+var gen7 is gen4 fmap: \:_ gen0 copy. # make the elements of gen0. forever.
+
+gen7 inext. # => 4
+gen7 inext. # => 5
+(1..10) fmap: \:_ gen7 inext, toArray. # => Array ← 6 ; 7 ; 8 ; 9 ; 10 ; 5 ; 6 ; 7 ; 8 ; 9
+
+# You can break in the middle of a mapping too, which will terminate the generator
+```
+
 # TODO: Generators, more Strings
 
 
