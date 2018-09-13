@@ -67,5 +67,14 @@ Simply use `Boolean::'break'` or `Boolean::'continue'`
 
 Should the given boolean be true, they will break/continue the loop.
 
+### Iterating over collections
+
+Most if not all collections support these methods \(if applicable\)
+
+* `each:` Simply iterates over the container, passing index(key), value, collection
+* `each_v:` Iterates over the container, but only passes value, collection
+* `fmap:` Iterates over the container, and replaces the element it has passed with the return value. passes only value
+* `imap:` Iterates over the container, and replaces the element it has passed with the return value. passes index, value
+
 
 
