@@ -24,8 +24,6 @@ There are a few rules to the import mechanism:
 
 You can change the name of the explicit imports by assigning them in a block \(see example below\)
 
-
-
 ### Importing something from the standard library
 
 The standard library is not very extensive, but it does have most of the essentials.
@@ -34,7 +32,7 @@ Example:
 
 ```ruby
 import Library/Data/Set/HashSet: 'HashSet'. # Will only import the object HashSet
-import Library/Data/Set/HashSet: { HashSet => 'Set'. }. # Will only import the object HashSet
+import Library/Data/Set/HashSet: { HashSet => 'Set'. }. # Will only import the object HashSet, as `Set'
 import Library/Data/Map. # Will import all the exported values in that module
 import Library/Functional/PatternMatch: \*. # Will import all the values in that module
 ```
