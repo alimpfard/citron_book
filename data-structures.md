@@ -259,8 +259,8 @@ var list1 is [a + x,, 1..3]. # bound names stay as they are
 # => [13, 14, 15]
 
 # More than one source:
-var list2 is [x + y,, 1..4, 5..6].
-
+var list2 is [x + y,, [1,2,3], [5,6,7]].
+var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
 ```
 
 # TODO: more Strings
