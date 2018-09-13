@@ -237,6 +237,32 @@ Everyone likes list comprehensions, so here, you can have them too.
 
 Literal: too many to list, take a look at the example
 
+#### Example
+
+```ruby
+var list0 is [x,, 1..10]. # Free variables are bound in order
+# => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# You can specify any number of predicates
+list0 is [x,, 1..10,, (x mod: 4, = 0)]. # Only multiples of 4
+# => [4, 8]
+
+list0 is [x,, 1..10,, (x mod: 4, = 0), (x > 4)]. # only multiples of 4 bigger then 4
+# => [8]
+
+# You can do without a source too
+var conditionally10 is [10,,, False]. # => []
+# Note the 3 commas
+
+var a is 10.
+var list1 is [a + x,, 1..3]. # bound names stay as they are
+# => [13, 14, 15]
+
+# More than one source:
+var list2 is [x + y,, 1..4, 5..6].
+
+```
+
 # TODO: more Strings
 
 
