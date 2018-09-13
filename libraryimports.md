@@ -44,6 +44,8 @@ The `import` object will try to import any name given to it in the following way
 1. Import only the exported names: `import path/to/module`
 2. Import one specific name from the module, in addition to the exports: `import path/to/module: 'whatever'`
 3. Import a list of names from some module: `import path/to/module: <Array of string>`
+4. Import a few names, specifying new names: `import path/to/module: { oldName => 'newName'. oldName2 => 'newName2'. }`
+5. Import all the symbols in a module: `import path/to/module: \*`
 
 
 
