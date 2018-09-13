@@ -16,7 +16,7 @@ and start the interpreter by executing `citron` and pressing `<return>`
 
 Once you have started the interpreter, it will greet you with a nice-looking ascii art,
 
-and the main prompt \(default `⠭⠕` \)
+and the main prompt \(default `⠕` \)
 
 Type `Pen writeln: 'Hello, World!'` followed by the return key.
 
@@ -44,6 +44,8 @@ Hello, World!
 #### How do I quit this interpreter?
 
 Type `:q` and press return.
+
+Or just press Ctrl + D.
 
 or if you really like punching in expressions, evaluate `Eval end`
 
