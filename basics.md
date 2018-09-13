@@ -70,9 +70,11 @@ Pen writeln: 'Hello, %s you seem to have an age of %d' % [name, age].
 
 The normal, basic sequences are supported.
 
-Also a way of embedding characters as hexadecimal is provided: `\x12`
+Also a way of embedding characters as hexadecimal is provided: `\x12 or \x{12}`
 
 which will consume all the hexadecimal digits it can.
+
+As well as unicode characters: `\u2002 or \u{2002}`
 
 ### Tuples
 
@@ -124,11 +126,12 @@ There are three main forms of assignment in Citron, all of which have the genera
 2. creation and assignment to a new reference: `(var | my) name is value`
 3. assignment by deconstruction: `type_var is value`, which we will get back to in another chapter.
 
-Every reference can optionally have three different modifiers \(Only one can be active at any given time\):
+Every reference can optionally have three \(four\) different modifiers \(Only one can be active at any given time\):
 
 1. `var` : simply creates a new reference if no old ones exist, otherwise binds to them
 2. `my`   : creates or binds to a property of the current object.
 3. `const` : tries to capture a variable from the environment around the currrent object
+4. `frozen`: if the XFrozen pragma is active. expression is only evaluated once.
 
 There is a shorthand for assignment to an object property \(`my property is value`\): `property => value`
 
