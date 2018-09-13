@@ -231,6 +231,12 @@ gen7 inext. # => 5
 # You can break in the middle of a mapping too, which will terminate the generator
 ```
 
+# List Comprehensions
+
+Everyone likes list comprehensions, so here, you can have them too.
+
+Literal: too many to list, take a look at the example
+
 # TODO: more Strings
 
 
