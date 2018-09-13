@@ -48,8 +48,10 @@ clearly everyone needs string formatting
 Two solutions are provided:
 
 * Embedding a variable inside the string: `'Hello, $$name !'`
+
 * Using the format methods: `'Hello, %s!' % [name]`
-* or the other format method: `'Hello, ${name}' %~: (Map fromArray: [['name', 'What']]`
+
+* or the other format method: `'Hello, %{name}' %~: (Map fromArray: [['name', 'What']]`
 
 The first solution is used as a quick-and-dirty way to embed single variables inside a string, and are processed by the lexer to a string addition expression: `'Hello, ' + name + ' !'`
 
