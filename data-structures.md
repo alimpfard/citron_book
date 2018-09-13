@@ -157,6 +157,43 @@ Sets are implemented basically as Maps, without values \(they have a fixed value
 
 No literals.
 
+#### Example
+
+```ruby
+# HashSet
+import Library/Data/Set/HashSet: 'HashSet'.
+# or as 'Set':
+# import Library/Data/Set/HashSet: { HashSet => 'Set'. }
+
+var set is HashSet new. # => {}
+set add: 1, add: 2. # => {2, 1}
+
+# Or maybe if you have a bunch
+set addAll: ['test', 3]. # => {3, 'test', 2, 1}
+
+# Remove an element
+set remove: 'test'. # => {3, 2, 1}
+
+# Check if an element exists
+set contains: 'test'. # => False
+
+# Bloom Filter
+import Library/Data/Set/BloomFilter: 'BloomFilter'.
+
+# These sets are neat, they provide a definite not-existence answer only
+# That is, you cannot retrieve data from them, nor can you reliably remove data from them
+# But they only contain a Number, and can be a fast low-confidence filter
+
+var bf is BloomFilter new.
+bf add: 'test', add: 'something else', add: 64. # => [BloomFilter]
+
+bf contains: 4. # => False
+bf contains: 'test'. # => True
+
+```
+
+
+
 # TODO: Sets, Generators, more Strings, maybe mention Iterators
 
 
