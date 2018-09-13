@@ -71,10 +71,21 @@ Should the given boolean be true, they will break/continue the loop.
 
 Most if not all collections support these methods \(if applicable\)
 
-* `each:` Simply iterates over the container, passing index(key), value, collection
+* `each:` Simply iterates over the container, passing index\(key\), value, collection
 * `each_v:` Iterates over the container, but only passes value, collection
 * `fmap:` Iterates over the container, and replaces the element it has passed with the return value. passes only value
 * `imap:` Iterates over the container, and replaces the element it has passed with the return value. passes index, value
+
+```ruby
+var arr is Array < 10 ; 20 ; 30 ; 40 ; 50.
+arr fmap: {:x ^x + 2.}. # => Array < 12 ; 22 ; 32 ; 42 ; 52
+arr imap: {:i:x ^x + i.}. # => Array < 10 ; 21 ; 32 ; 43 ; 54
+arr each: {:i:x Pen writeln: 'Index $$i = $$x'. }. # => returns arr, prints a bunch of stuff
+
+var map is Map fromArray: [ ['Test', 'test'], ['KEY', 'key'], [[], 'Whoa'], [1234, []] ].
+map fmap: {:value ^value toString reverse.}. # => (Map new) put:'tseT' at:'Test', put:'YEK' at:'KEY', put:'][' at:([]), put:'4321' at:1234
+map each: {:key:value Pen writeln: '$$key = $$value'.}. # => returns map, prints a bunch of lines
+```
 
 
 
