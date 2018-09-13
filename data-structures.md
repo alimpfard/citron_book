@@ -189,12 +189,9 @@ bf add: 'test', add: 'something else', add: 64. # => [BloomFilter]
 
 bf contains: 4. # => False
 bf contains: 'test'. # => True
-
 ```
 
-
-
-# TODO: Sets, Generators, more Strings, maybe mention Iterators
+# TODO: Generators, more Strings, maybe mention Iterators
 
 
 
