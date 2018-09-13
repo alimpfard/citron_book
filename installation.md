@@ -2,11 +2,13 @@
 
 Citron is meant to be used on UNIX-like systems, and as such it does not, and _will not_ support Window.
 
-Since Citron is at a beta stage, no precompiled binaries are provided.
 
 
+## Binaries
 
-##  Building From Source
+Basic binary builds are provided for Linux \(ELF x86\_64\) and Windows \(PE x86\_64\)
+
+## Building From Source
 
 Clone the git repository at [https://github.com/alimpfard/citron](https://github.com/alimpfard/citron).
 
@@ -26,8 +28,6 @@ $ make && sudo make install
 ```
 
 which will install the `ctr` executable, an interactive interpreter `citron` and the library and headers.
-
-
 
 ## Summary
 
