@@ -264,10 +264,10 @@ var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
 
 # You can return any citron object
 var dispatch is Map fromArray: [ [x, {\:arg arg at: x.}],, 1..5].
-# => (Map new) put:([5, ([:Block])]) at:([5, ([:Block])]), put:([4, ([:Block])]) at:([4, ([:Block])]), put:([3, ([:Block])]) at:([3, ([:Block])]), put:([2, ([:Block])]) at:([2, ([:Block])]), put:([1, ([:Block])]) at:([1, ([:Block])])
+# => (Map new) put:([:Block]) at:5, put:([:Block]) at:4, put:([:Block]) at:3, put:([:Block]) at:2, put:([:Block]) at:1
 
 # Now call it!
-dispatch at: 1, applyTo: [1,2,3]. # => 
+dispatch at: 1, applyTo: [1,2,3]. # => 2
 ```
 
 # TODO: more Strings
