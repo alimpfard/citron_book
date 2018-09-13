@@ -6,7 +6,7 @@ Printing `Hello, World!` is always exciting and all, but it's never enough...may
 
 _Comments_ always span a signle line, beginning with the character `#`
 
-\(Do note that the interactive interpreter will not allow comments\)
+\(Do note that the interactive interpreter will not allow comments\)  
 For example:
 
 ```ruby
@@ -47,7 +47,7 @@ clearly everyone needs string formatting
 
 Two solutions are provided:
 
-* Embedding a variable inside the string:
+* Embedding a variable inside the string: `Hello, $$name !'`
 
 * Using the format methods: `'Hello, %s!' % [name]`
 
@@ -116,8 +116,6 @@ You may put all the statements in a single line \(why would you want to?\)
 
 Whitespace is ignored, and has virtually no meaning.
 
-
-
 ### Assignment
 
 There are three main forms of assignment in Citron, all of which have the general from `expr (:= | is) expr`
@@ -126,7 +124,7 @@ There are three main forms of assignment in Citron, all of which have the genera
 2. creation and assignment to a new reference: `(var | my) name is value`
 3. assignment by deconstruction: `type_var is value`, which we will get back to in another chapter.
 
-Every reference can optionally have three different modifiers \(Only one can be active at any given time\): 
+Every reference can optionally have three different modifiers \(Only one can be active at any given time\):
 
 1. `var` : simply creates a new reference if no old ones exist, otherwise binds to them
 2. `my`   : creates or binds to a property of the current object.
@@ -135,8 +133,4 @@ Every reference can optionally have three different modifiers \(Only one can be 
 There is a shorthand for assignment to an object property \(`my property is value`\): `property => value`
 
 which will prove useful in certain points \(which we will explore in later chapters\).
-
-
-
-
 
