@@ -6,7 +6,7 @@ There are mainly three ways of executing citron code:
 
 * with the main executable `ctr`
 * with the (JIT) interpreter
-* compiling it with `ctrc` and executing that [this only generates a simple program that links into the Citron runtime, it is not static]
+* compiling it with `ctrc` and executing that \[this only generates a simple program that links into the Citron runtime, it is not static\]
 
 ### Using the Interpreter Prompt
 
