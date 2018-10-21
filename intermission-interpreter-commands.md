@@ -14,6 +14,8 @@ Interpreter metacommands help:
       + !m <expression> -- evaluates and shows the methods of expression.
       + !p <expression> -- evaluates and shows the properties of expression.
       + !f <[no-]flag> -- modifies flag
+      + hist [(<nth>)] <query> -- searches for entry in history, and returns it as a block
+      + !hist [(<nth>)] <query> -- searches and executes (like hist but executes immediately)
       + set <(+|-)flag> -- alternative for !f with easier(?) syntax
       + !def <name> <expression> -- create a metacommand
       + p <expression> -- prints the value of expression
@@ -34,17 +36,15 @@ User-defined commands:
 
 Most of these commands are useful utilities provided for fun and profit.
 
-A few useful meta commands:  
-
+A few useful meta commands:
 
 * `:q` very useful, quits the evaluator
 * `:t <expression>` sometimes useful, displays the type of the expression
 * `:set +stats` shows statistics for each evaluation
-* `:set -printvs` disables the print of results (useful for big values)
+* `:set -printvs` disables the print of results \(useful for big values\)
 * `:p expression` print the value of expression
 * `:! ls` I dunno, I guess you might need the file listing fast 
 * `:!def wee \:args 'weeeee $$args'` these work as a fast meta-macro too
-
 
 Try to play with some of them!
 
