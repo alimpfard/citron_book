@@ -57,7 +57,7 @@ equality _can_ be tested with the alias method `equals:`, However, when overridi
 
 The methods `+=:`, `*=:`, `-=:`, `/=:` exist, but they change the object itself, so any instance of that object will have a different value.
 
-```
+```ruby
 var a is 123.
 var b is a.
 

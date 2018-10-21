@@ -47,7 +47,7 @@ if-then-else applyTo:
 
 Of course, this feels clunky, and looks weird, but there are more ways to deal with metafunctions, in a more elegant way.
 
-\(First, see [Parser Pragmas](/parser-pragmas.md "read this first, pleeeeeeeeeease")\)
+\(First, see [Parser Pragmas](/parser-pragmas.mdci "read this first, pleeeeeeeeeease")\)
 
 Through the use of the `declare` pragma, it is possible to create a function that does not evaluate its arguments before being invoked, but rather explicitly after.
 

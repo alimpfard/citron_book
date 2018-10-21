@@ -70,3 +70,11 @@ I got some 1 and a bunch of Array new
 
 
 
+### Calling functions
+
+There are several ways to interact with functions, each can be used for some very specific purpose:
+
+1. Simply using the different messages that `CodeBlock` provides: `applyTo:[and:]*`
+
+
+
