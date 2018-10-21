@@ -51,7 +51,7 @@ fn is {:x:*ys
 
 Evaluation of different callings:
 
-```ruby
+```ctr
 ⠒⠂fn is {:x:*ys Pen writeln: 'I got some $$x and a bunch of $$ys'.}.
 [_:Block]
 ⠕ fn applyTo: 1.
@@ -73,19 +73,47 @@ I got some 1 and a bunch of Array new
 There are several ways to interact with functions, each can be used for some very specific purpose:
 
 1. Simply using the different messages that `CodeBlock` provides: `applyTo:[and:]*` and `applyAll:`
-    + `func applyTo: 1 and: 2`
-    + `func applyAll: [1, 2]`
-    
-2. Using the call shorthand (`expr [...]` by default)
-    + `func [1, 2]`
 
-3. using the infix function call (for binary functions)
-    + ``` 1 `func` 2 ```
-    + This mode can be configured (with a pragma) to lazily pass the arguments
-4. using the lazy call shorthand (not configurable) (`expr {...}`)
-    + `func {1, 2}`
+   * `func applyTo: 1 and: 2`
+   * `func applyAll: [1, 2]`
+
+2. Using the call shorthand \(`expr [...]` by default\)
+
+   * `func [1, 2]`
+
+3. using the infix function call \(for binary functions\)
+
+   * ``1 `func` 2``
+   * This mode can be configured \(with a pragma\) to lazily pass the arguments
+
+4. using the lazy call shorthand \(not configurable\) \(`expr {...}`\)
+   * `func {1, 2}`
 
 ### Example outlining all the above methods
 
 ```ruby
+⠕ var fun0 is \:x:y x + y
+[_:Block]
+⠕ fun0 applyTo: 1 and: 2
+3
+⠕ fun0 applyAll: [1, 2]
+3
+⠕ fun0 [1, 2]
+3
+⠕ 1 `fun0` 2
+3
+# lazy evaluation style => explicit evaluation
+⠕ var fun0 is \:x:y x evaluate + y evaluate
+[_:Block]
+# a pragma in eval
+⠕ :!pragmaOnce::declare lazyev fun0
+⠕ 1 `fun0` 2
+3
+⠕ fun0 {1, 2}
+3
 ```
+
+
+
+
+
