@@ -39,6 +39,7 @@ Most of these commands are useful utilities provided for fun and profit.
 A few useful meta commands:
 
 * `:q` very useful, quits the evaluator
+* `!hist 0 test[` execute the latest history entry that begins with `test[`
 * `:t <expression>` sometimes useful, displays the type of the expression
 * `:set +stats` shows statistics for each evaluation
 * `:set -printvs` disables the print of results \(useful for big values\)
