@@ -5,7 +5,7 @@ Clearly, every language requires a 'Hello, World!' program.
 There are mainly three ways of executing citron code:
 
 * with the main executable `ctr`
-* with the scratchpad \(neat thing, tbh\) \(see [Scratchpad]()\)
+* with the scratchpad \(neat thing, tbh\) \(see [Scratchpad](/scratchpad.md)\)
 * with the \(JIT\) interpreter
 * compiling it with `ctrc` and executing that \[this only generates a simple program that links into the Citron runtime, it is not static\]
 
