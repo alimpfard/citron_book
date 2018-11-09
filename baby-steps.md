@@ -5,7 +5,8 @@ Clearly, every language requires a 'Hello, World!' program.
 There are mainly three ways of executing citron code:
 
 * with the main executable `ctr`
-* with the (JIT) interpreter
+* with the scratchpad \(neat thing, tbh\) \(see [Scratchpad]()\)
+* with the \(JIT\) interpreter
 * compiling it with `ctrc` and executing that \[this only generates a simple program that links into the Citron runtime, it is not static\]
 
 ### Using the Interpreter Prompt
@@ -38,7 +39,6 @@ Terminal: 24x83 - 0x0
 ⠕ Pen writeln: 'Hello, World!'
 Hello, World!
 [_:Object]
-
 ```
 
 #### How do I quit this interpreter?
@@ -51,7 +51,7 @@ or if you really like punching in expressions, evaluate `Eval end`
 
 ### Choosing an editor
 
-Currently, Atom, TextMate and Sublime 3 syntax files are generated and maintained.
+Currently, Atom, TextMate and Sublime 3 syntax files are generated and maintained.  
 However, minimal Smalltalk syntax highlighting will do in a pinch
 
 ### Using a source file
