@@ -20,4 +20,5 @@
 * [Meta-functions](parse-time-meta-functions.md)
 * [Parser Pragmas](parser-pragmas.md)
 * [Scratchpad](scratchpad.md)
+* [Inline Assembly Blocks](inline-assembly-blocks.md)
 
