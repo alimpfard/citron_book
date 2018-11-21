@@ -28,7 +28,7 @@ The parser supports pragmas in the form of `#:pragma_name arguments` that modify
   * `XPureLambda`
     * Memoizes lambda expressions that are detected to be pure \(side-effect free\)
   * `XNakedAsmBlocks`
-    * Allows insertion of assembly code inside a block specially denoted such
+    * Allows insertion of assembly code inside a block specially denoted such [more on this in [Inline Assembly Blocks](#inline-assembly-blocks.md)
 
 
 
