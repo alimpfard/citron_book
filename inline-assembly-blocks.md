@@ -40,6 +40,12 @@ The register constraints are modelled exactly after LLVM's inline assembly expre
     * example: `{rax}m`: either allocate `%rax`, or fallback to memory
   * There must be exactly as many input constraints as there are arguments; any deviation will simply cause either a segfault or a comptime error
 
+The assembly code can then refer to the constrainted registers/memory locs by their index in the constraint list: `$<index>` 
+
+For example, if the constraint list is `(={rax},m,r)`, to address the first input \(the memory\), `$1` can be used.
+
+Note that because of this templating system, number literals in at&t syntax must be prefixed with two `$`, not one \(`$$0x10`\)
+
 ### Example
 
 ```ctr
