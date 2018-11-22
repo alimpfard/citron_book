@@ -10,7 +10,7 @@ There are three different semantics for messages
 
 * Unary Messages -- These are _more_ than one unicode code point long, and take no parameters, and have no colon after them.
 
-* Binary Messages -- These are either exactly one unicode code point long, or are equal to`::` , or are composed of any of `=+-*&%$@~<>?;` .these take a single argument.
+* Binary Messages -- These are either exactly one unicode code point long, or are equal to`::` , or are composed of any of `=+-*&%$@~<>?;`. these take a single argument.
 
 * Keyword Messages -- These are arbitrarily long names, separated by colons
 
