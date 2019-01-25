@@ -68,6 +68,23 @@ I got some 1 and a bunch of Array new
 [_:Block]
 ```
 
+### Calling by Reference vs Calling by Value
+
+Normally, "simple" objects are passed by value, and the rest are passed by reference;
+
+However, by prepending an ampersand \(`&`\) to an argument, it will _always_ be passed as a reference.
+
+Here's a handy table:
+
+| Type\Behaviour | Behaviour under :arg | Behaviour under :&arg | Behaviour under :\*arg |
+| :--- | :--- | :--- | :--- |
+| Nil | Reference | Reference | Reference |
+| String | Copy | Reference | Reference |
+| Boolean | Copy | Reference | Reference |
+| Number | Copy | Reference | Reference |
+| Array | Reference | Reference | Reference |
+| Any other type | Reference | Reference | Reference |
+
 ### Calling functions
 
 There are several ways to interact with functions, each can be used for some very specific purpose:
@@ -87,6 +104,7 @@ There are several ways to interact with functions, each can be used for some ver
    * This mode can be configured \(with a pragma\) to lazily pass the arguments
 
 4. using the lazy call shorthand \(not configurable\) \(`expr {...}`\)
+
    * `func {1, 2}`
 
 ### Example outlining all the above methods
@@ -112,8 +130,6 @@ There are several ways to interact with functions, each can be used for some ver
 ⠕ fun0 {1, 2}
 3
 ```
-
-
 
 
 
