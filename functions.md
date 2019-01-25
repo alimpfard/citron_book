@@ -133,6 +133,18 @@ There are several ways to interact with functions, each can be used for some ver
 3
 ⠕ fun0 {1, 2}
 3
+⠕ var fun_ref is {:&x:y ^(x +=: 1) + y.}
+[_:Block]
+⠕ var x is 1
+1
+⠕ var y is 2
+2
+⠕ fun_ref[x, y]
+4
+⠕ x
+2
+⠕ y
+2
 ```
 
 
