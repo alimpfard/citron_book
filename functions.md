@@ -76,7 +76,7 @@ However, by prepending an ampersand \(`&`\) to an argument, it will _always_ be 
 
 Here's a handy table:
 
-| Type\Behaviour | Behaviour under :arg | Behaviour under :&arg | Behaviour under :\*arg |
+| Type\Behaviour | Behaviour under `:arg` | Behaviour under `:&arg` | Behaviour under `:\*arg` |
 | :--- | :--- | :--- | :--- |
 | Nil | Reference | Reference | Reference |
 | String | Copy | Reference | Reference |
