@@ -74,6 +74,10 @@ Normally, "simple" objects are passed by value, and the rest are passed by refer
 
 However, by prepending an ampersand \(`&`\) to an argument, it will _always_ be passed as a reference.
 
+##### Note
+
+Lambdas and Lexical Blocks will _not_ accept reference arguments
+
 Here's a handy table:
 
 | Type\Behaviour | Behaviour under `:arg` | Behaviour under `:&arg` | Behaviour under `:*arg` |
