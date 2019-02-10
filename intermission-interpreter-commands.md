@@ -14,6 +14,7 @@ Interpreter metacommands help:
       + !m <expression> -- evaluates and shows the methods of expression.
       + !p <expression> -- evaluates and shows the properties of expression.
       + !f <[no-]flag> -- modifies flag
+      + last [(<nth>)] <query> -- sets the next input to the last (nth if provided) match in history
       + hist [(<nth>)] <query> -- searches for entry in history, and returns it as a block
       + !hist [(<nth>)] <query> -- searches and executes (like hist but executes immediately)
       + set <(+|-)flag> -- alternative for !f with easier(?) syntax
