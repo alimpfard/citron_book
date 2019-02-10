@@ -40,6 +40,7 @@ Most of these commands are useful utilities provided for fun and profit.
 A few useful meta commands:
 
 * `:q` very useful, quits the evaluator
+* `:last import` brings the latest command that began with `import` and allows you to edit it
 * `!hist 0 test[` execute the latest history entry that begins with `test[`
 * `:t <expression>` sometimes useful, displays the type of the expression
 * `:set +stats` shows statistics for each evaluation
