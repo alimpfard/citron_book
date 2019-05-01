@@ -86,6 +86,3 @@ var map is Map fromArray: [ ['Test', 'test'], ['KEY', 'key'], [[], 'Whoa'], [123
 map fmap: {:value ^value toString reverse.}. # => (Map new) put:'tseT' at:'Test', put:'YEK' at:'KEY', put:'][' at:([]), put:'4321' at:1234
 map each: {:key:value Pen writeln: '$$key = $$value'.}. # => returns map, prints a bunch of lines
 ```
-
-
-[<- Prev](expressions-and-messages.md) [Next ->](functions.md)
