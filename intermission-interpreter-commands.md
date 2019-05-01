@@ -274,6 +274,3 @@ dispatch at: 1, applyTo: [1,2,3]. # => 2
 ```
 
 # TODO: more Strings
-
-
-[<- Prev](functions.md) [Next ->](data-structures.md)
