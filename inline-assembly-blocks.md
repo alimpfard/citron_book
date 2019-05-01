@@ -59,7 +59,3 @@ var native-fn is {asm intel :int (={rax},r)
 # Now you can treat `native-fn' as any boring old code block
 native-fn applyTo: 4. # => 8
 ```
-
-
-
-[<- Prev](scratchpad.md)
