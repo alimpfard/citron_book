@@ -62,3 +62,4 @@ native-fn applyTo: 4. # => 8
 
 
 
+[<- Prev](scratchpad.md)
