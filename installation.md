@@ -43,5 +43,3 @@ Remember to put it in paste mode \(press F2\) before pasting
 Exiting paste mode is just like entering it \(F2\)
 
 
-
-[<- Prev](about-citron.md) [Next ->](baby-steps.md)
