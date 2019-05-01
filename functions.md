@@ -148,4 +148,4 @@ There are several ways to interact with functions, each can be used for some ver
 ```
 
 
-
+[<- Prev](control-flow.md) [Next ->](intermission-interpreter-commands.md)
