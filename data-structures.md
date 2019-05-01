@@ -276,4 +276,4 @@ dispatch at: 1, applyTo: [1,2,3]. # => 2
 # TODO: more Strings
 
 
-[<- Prev](control-flow.md) [Next ->](intermission-interpreter-commands.md)
+[<- Prev](intermission-interpreter-commands.md) [Next ->](objects.md)
