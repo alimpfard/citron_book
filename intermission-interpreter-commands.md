@@ -51,3 +51,5 @@ A few useful meta commands:
 
 Try to play with some of them!
 
+
+[<- Prev](intermission-interpreter-commands.md) [Next ->](data-structures.md)
