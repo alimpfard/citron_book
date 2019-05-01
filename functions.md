@@ -80,7 +80,7 @@ Lambdas and Lexical Blocks will _not_ accept reference arguments
 
 Here's a handy table:
 
-| Type\Behaviour | Behaviour under `:arg` | Behaviour under `:&arg` | Behaviour under `:*arg` |
+| Type/Behaviour | Behaviour under `:arg` | Behaviour under `:&arg` | Behaviour under `:*arg` |
 | :--- | :--- | :--- | :--- |
 | Nil | Reference | Reference | Reference |
 | String | Copy | Reference | Reference |
