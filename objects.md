@@ -66,7 +66,3 @@ var C is P0 new inheritFrom: P1.
 #Now ::'test1' will properly work (it will not contain any references to P1)
 C test1. #=> 'test1'
 ```
-
-
-
-[<- Prev](data-structures.md) [Next ->](io.md)
