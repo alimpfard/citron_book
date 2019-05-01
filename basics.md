@@ -136,6 +136,3 @@ Every reference can optionally have three \(four\) different modifiers \(Only on
 There is a shorthand for assignment to an object property \(`my property is value`\): `property => value`
 
 which will prove useful in certain points \(which we will explore in later chapters\).
-
-
-[<- Prev](baby-steps.md) [Next ->](expressions-and-messages.md)
