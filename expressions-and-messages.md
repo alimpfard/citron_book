@@ -76,6 +76,3 @@ The generic order of evaluation is
 4. and so on
 
 Parens are treated normally.
-
-
-[<- Prev](basics.md) [Next ->](control-flow.md)
