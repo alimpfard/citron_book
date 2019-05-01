@@ -78,6 +78,3 @@ You may access these by `File::'special:'`
 
 Note that `stdin` does _not_ allow writes, and the other two do not allow reads.
 
-
-
-[<- Prev](objects.md) [Next ->](exceptions.md)
