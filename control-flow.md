@@ -88,4 +88,4 @@ map each: {:key:value Pen writeln: '$$key = $$value'.}. # => returns map, prints
 ```
 
 
-
+[<- Prev](expressions-and-messages.md) [Next ->](functions.md)
