@@ -71,5 +71,3 @@ $ ctr main.ctr
 Hello, World!
 ```
 
-
-[<- Prev](installation.md) [Next ->](basics.md)
