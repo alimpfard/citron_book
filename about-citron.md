@@ -4,3 +4,5 @@ Citron is a language that tries to explore the ideas and combine things that hav
 
 It is by no means meant to be used for serious projects and is _as of yet_ in a beta stage.
 
+
+[<- Prev](about-citron.md) [Next ->](installation.md)
