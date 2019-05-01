@@ -49,6 +49,3 @@ The `import` object will try to import any name given to it in the following way
 
     * `\*` is a Symbol, it is a kind of String that is allocated only once.
 
-
-
-[<- Prev](exceptions.md) [Next ->](standard-library.md)
