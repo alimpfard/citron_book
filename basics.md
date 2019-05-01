@@ -137,3 +137,5 @@ There is a shorthand for assignment to an object property \(`my property is valu
 
 which will prove useful in certain points \(which we will explore in later chapters\).
 
+
+[<- Prev](baby-steps.md) [Next ->](expressions-and-messages.md)
