@@ -29,7 +29,3 @@ The parser supports pragmas in the form of `#:pragma_name arguments` that modify
     * Memoizes lambda expressions that are detected to be pure \(side-effect free\)
   * `XNakedAsmBlocks`
     * Allows insertion of assembly code inside a block specially denoted such [more on this in [Inline Assembly Blocks](#inline-assembly-blocks.md)
-
-
-
-[<- Prev](meta-functions.md) [Next ->](scratchpad.md)
