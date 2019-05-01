@@ -37,6 +37,3 @@ The treeview on the left first lists the inheritance chain of the object \(if an
 Double clicking a property will show its value in the textview on the bottom, and middle-mouse-clicking on a property will `inspect` it.
 
 The method list on the right is only browsable at the moment.
-
-
-[<- Prev](parser-pragmas.md) [Next ->](inline-assembly-blocks.md)
