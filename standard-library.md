@@ -72,5 +72,5 @@ This category is dedicated to interfacing foreign functions, and has a complemen
 
 TODO: Finish this page
 
-[<- Prev](control-flow.md) [Next ->](meta-functions.md)
+[<- Prev](library-imports.md) [Next ->](meta-functions.md)
 
