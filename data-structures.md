@@ -256,14 +256,16 @@ var conditionally10 is [10,,, False]. # => []
 
 var a is 10.
 var list1 is [a + x,, 1..3]. # bound names stay as they are
-# => [13, 14, 15]
+# => [11, 12, 13]
 
-# More than one source (Generators not supported  yet)
+# More than one source
 var list2 is [x + y,, [1,2,3], [5,6,7]]. # => Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 8 ; 9 ; 10
 var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
+var list4 is [x + y,, 1..3, 5..7]. # => Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 8 ; 9 ; 10
+var list5 is [x + y,, (x: 1..3), (y: 5..7),, y - x < 5] # => Array ← 6 ; 7 ; 8 ; 8 ; 9 ; 10
 
 # You can specify the names as well
-var list4 is [x + y,, (y: [1,2,3]), (x: [5,6,7]),, x < y, (x mod: y > 2)].
+var list6 is [x + y,, (y: [1,2,3]), (x: [5,6,7]),, x < y, (x mod: y > 2)].
 
 # You can return any citron object
 var dispatch is Map fromArray: [[x, {\:arg arg at: x.}],, 1..5]. # returns a 2-tuple of key and a block that calls its argument with that key
@@ -275,5 +277,5 @@ dispatch at: 1, applyTo: [1,2,3]. # => 2
 
 # TODO: more Strings
 
+[&lt;- Prev](intermission-interpreter-commands.md) [Next -&gt;](objects.md)
 
-[<- Prev](intermission-interpreter-commands.md) [Next ->](objects.md)
