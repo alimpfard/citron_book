@@ -264,7 +264,7 @@ var list3 is [x + y,, [1,2,3], [5,6,7],, x > y]. # => []
 var list4 is [x + y,, 1..3, 5..7]. # => Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 8 ; 9 ; 10
 
 # You can specify the names as well
-var list5 is [x + y,, (y: [1,2,3]), (x: [5,6,7]),, x < y, (x mod: y > 2)].
+var list5 is [x + y,, (y: [1,2,3]), (x: [5,6,7]),, x < y, (x mod: y, > 2)].
 var list6 is [x + y,, (x: 1..3), (y: 5..7),, y - x < 5] # => Array ← 6 ; 7 ; 8 ; 8 ; 9 ; 10
 
 # You can return any citron object
