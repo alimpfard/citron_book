@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Functions - Citron Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="chapter1.html"><strong aria-hidden="true">2.</strong> Dedication</a></li><li><a href="preface.html"><strong aria-hidden="true">3.</strong> Preface</a></li><li><a href="about-citron.html"><strong aria-hidden="true">4.</strong> About Citron</a></li><li><a href="installation.html"><strong aria-hidden="true">5.</strong> Installation</a></li><li><a href="baby-steps.html"><strong aria-hidden="true">6.</strong> Baby Steps!</a></li><li><a href="basics.html"><strong aria-hidden="true">7.</strong> Basics</a></li><li><a href="expressions-and-messages.html"><strong aria-hidden="true">8.</strong> Expressions and Messages</a></li><li><a href="control-flow.html"><strong aria-hidden="true">9.</strong> Control Flow</a></li><li><a href="functions.html" class="active"><strong aria-hidden="true">10.</strong> Functions</a></li><li><a href="intermission-interpreter-commands.html"><strong aria-hidden="true">11.</strong> Intermission: Interpreter Commands</a></li><li><a href="data-structures.html"><strong aria-hidden="true">12.</strong> Data Structures</a></li><li><a href="objects.html"><strong aria-hidden="true">13.</strong> Objects</a></li><li><a href="io.html"><strong aria-hidden="true">14.</strong> IO</a></li><li><a href="exceptions.html"><strong aria-hidden="true">15.</strong> Exceptions</a></li><li><a href="libraryimports.html"><strong aria-hidden="true">16.</strong> Library/Imports</a></li><li><a href="standard-library.html"><strong aria-hidden="true">17.</strong> Standard Library</a></li><li><a href="parse-time-meta-functions.html"><strong aria-hidden="true">18.</strong> Meta-functions</a></li><li><a href="parser-pragmas.html"><strong aria-hidden="true">19.</strong> Parser Pragmas</a></li><li><a href="scratchpad.html"><strong aria-hidden="true">20.</strong> Scratchpad</a></li><li><a href="inline-assembly-blocks.html"><strong aria-hidden="true">21.</strong> Inline Assembly Blocks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Citron Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#functions" id="functions">Functions</a></h2>
+<p>functions in citron are simply code blocks given name.</p>
+<p>to make a function, you may simply assign a code block to a variable:</p>
+<pre><code class="language-ruby">var fn is {:x:y
+    Pen writeln: (x abs - y).
+    ^x pow: y.
+}.
+</code></pre>
+<p>and to call a function, simply send a message to it:</p>
+<pre><code class="language-ruby">fn applyTo: 1 and: 2. #apply arguments over several keyword args
+fn applyAll: [1, 2]. #apply all arguments at once with a tuple
+</code></pre>
+<p>If not enough arguments are passed, depending on the message, you might get either an exception, or have the parameter simply evaluate to <code>Nil</code></p>
+<p>(<code>CodeBlock::'applyAll:'</code> will throw an exception if more or less arguments are provided)</p>
+<p>Functions will behave just like code blocks in every aspect.</p>
+<h3><a class="header" href="#the-self-parameter" id="the-self-parameter">The `self' parameter</a></h3>
+<p>In order to mitigate the problem with <code>me</code> always referencing the current block, you may simply add <code>self</code> as the first parameter to the block, like so:</p>
+<pre><code class="language-ruby">fn is {:self:par
+    Pen writeln: par.
+    #`self' here is a direct reference to this block
+    ^{
+        ^const self. #and it still references that block
+    }.
+}. #self is implicitly filled, acts as if it never existed
+fn applyTo: 1024. #par gets assigned 1024
+</code></pre>
+<h3><a class="header" href="#varargs" id="varargs">Varargs</a></h3>
+<p>To collect all extra arguments in an array, you may provide a vararg <code>*argument_name</code> in the formal parameters</p>
+<pre><code class="language-ruby">fn is {:x:*ys
+    Pen writeln: 'I got some $$x and a bunch of $$ys'.
+}.
+</code></pre>
+<p>Evaluation of different callings:</p>
+<pre><code class="language-ctr">⠒⠂fn is {:x:*ys Pen writeln: 'I got some $$x and a bunch of $$ys'.}.
+[_:Block]
+⠕ fn applyTo: 1.
+I got some 1 and a bunch of Array new
+[_:Block]
+⠕ fn applyTo: 1 and: 2.
+I got some 1 and a bunch of Array ← 2
+[_:Block]
+⠕ fn applyAll: [1,2,3].
+I got some 1 and a bunch of Array ← 2 ; 3
+[_:Block]
+⠕ fn applyAll: [1].
+I got some 1 and a bunch of Array new
+[_:Block]
+</code></pre>
+<h3><a class="header" href="#calling-by-reference-vs-calling-by-value" id="calling-by-reference-vs-calling-by-value">Calling by Reference vs Calling by Value</a></h3>
+<p>Normally, &quot;simple&quot; objects are passed by value, and the rest are passed by reference;</p>
+<p>However, by prepending an ampersand (<code>&amp;</code>) to an argument, it will <em>always</em> be passed as a reference.</p>
+<h5><a class="header" href="#note" id="note">Note</a></h5>
+<p>Lambdas and Lexical Blocks will <em>not</em> accept reference arguments</p>
+<p>Here's a handy table:</p>
+<table><thead><tr><th align="left">Type/Behaviour</th><th align="left">Behaviour under <code>:arg</code></th><th align="left">Behaviour under <code>:&amp;arg</code></th><th align="left">Behaviour under <code>:*arg</code></th></tr></thead><tbody>
+<tr><td align="left">Nil</td><td align="left">Reference</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+<tr><td align="left">String</td><td align="left">Copy</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+<tr><td align="left">Boolean</td><td align="left">Copy</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+<tr><td align="left">Number</td><td align="left">Copy</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+<tr><td align="left">Array</td><td align="left">Reference</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+<tr><td align="left">Any other type</td><td align="left">Reference</td><td align="left">Reference</td><td align="left">Reference</td></tr>
+</tbody></table>
+<h3><a class="header" href="#calling-functions" id="calling-functions">Calling functions</a></h3>
+<p>There are several ways to interact with functions, each can be used for some very specific purpose:</p>
+<ol>
+<li>
+<p>Simply using the different messages that <code>CodeBlock</code> provides: <code>applyTo:[and:]*</code> and <code>applyAll:</code></p>
+<ul>
+<li><code>func applyTo: 1 and: 2</code></li>
+<li><code>func applyAll: [1, 2]</code></li>
+</ul>
+</li>
+<li>
+<p>Using the call shorthand (<code>expr [...]</code> by default)</p>
+<ul>
+<li><code>func [1, 2]</code></li>
+</ul>
+</li>
+<li>
+<p>using the infix function call (for binary functions)</p>
+<ul>
+<li><code>1 `func` 2</code></li>
+<li>This mode can be configured (with a pragma) to lazily pass the arguments</li>
+</ul>
+</li>
+<li>
+<p>using the lazy call shorthand (not configurable) (<code>expr {...}</code>)</p>
+<ul>
+<li><code>func {1, 2}</code></li>
+</ul>
+</li>
+</ol>
+<h3><a class="header" href="#example-outlining-all-the-above-methods" id="example-outlining-all-the-above-methods">Example outlining all the above methods</a></h3>
+<pre><code class="language-ruby">⠕ var fun0 is \:x:y x + y
+[_:Block]
+⠕ fun0 applyTo: 1 and: 2
+3
+⠕ fun0 applyAll: [1, 2]
+3
+⠕ fun0 [1, 2]
+3
+⠕ 1 `fun0` 2
+3
+# lazy evaluation style =&gt; explicit evaluation
+⠕ var fun0 is \:x:y x evaluate + y evaluate
+[_:Block]
+# a pragma in eval
+⠕ :!pragmaOnce::declare lazyev fun0
+⠕ 1 `fun0` 2
+3
+⠕ fun0 {1, 2}
+3
+⠕ var fun_ref is {:&amp;x:y ^(x +=: 1) + y.}
+[_:Block]
+⠕ var x is 1
+1
+⠕ var y is 2
+2
+⠕ fun_ref[x, y]
+4
+⠕ x
+2
+⠕ y
+2
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="control-flow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="intermission-interpreter-commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="control-flow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="intermission-interpreter-commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

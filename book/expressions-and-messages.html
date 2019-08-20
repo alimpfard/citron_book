@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Expressions and Messages - Citron Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="chapter1.html"><strong aria-hidden="true">2.</strong> Dedication</a></li><li><a href="preface.html"><strong aria-hidden="true">3.</strong> Preface</a></li><li><a href="about-citron.html"><strong aria-hidden="true">4.</strong> About Citron</a></li><li><a href="installation.html"><strong aria-hidden="true">5.</strong> Installation</a></li><li><a href="baby-steps.html"><strong aria-hidden="true">6.</strong> Baby Steps!</a></li><li><a href="basics.html"><strong aria-hidden="true">7.</strong> Basics</a></li><li><a href="expressions-and-messages.html" class="active"><strong aria-hidden="true">8.</strong> Expressions and Messages</a></li><li><a href="control-flow.html"><strong aria-hidden="true">9.</strong> Control Flow</a></li><li><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a></li><li><a href="intermission-interpreter-commands.html"><strong aria-hidden="true">11.</strong> Intermission: Interpreter Commands</a></li><li><a href="data-structures.html"><strong aria-hidden="true">12.</strong> Data Structures</a></li><li><a href="objects.html"><strong aria-hidden="true">13.</strong> Objects</a></li><li><a href="io.html"><strong aria-hidden="true">14.</strong> IO</a></li><li><a href="exceptions.html"><strong aria-hidden="true">15.</strong> Exceptions</a></li><li><a href="libraryimports.html"><strong aria-hidden="true">16.</strong> Library/Imports</a></li><li><a href="standard-library.html"><strong aria-hidden="true">17.</strong> Standard Library</a></li><li><a href="parse-time-meta-functions.html"><strong aria-hidden="true">18.</strong> Meta-functions</a></li><li><a href="parser-pragmas.html"><strong aria-hidden="true">19.</strong> Parser Pragmas</a></li><li><a href="scratchpad.html"><strong aria-hidden="true">20.</strong> Scratchpad</a></li><li><a href="inline-assembly-blocks.html"><strong aria-hidden="true">21.</strong> Inline Assembly Blocks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Citron Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#expressions-and-messages" id="expressions-and-messages">Expressions and Messages</a></h2>
+<p>All the statements will contain one, or more expressions.</p>
+<p>There are <em>no</em> native operators, and all expressions are either mentions of an object, or messages sent to them.</p>
+<h2><a class="header" href="#messages" id="messages">Messages</a></h2>
+<p>There are three different semantics for messages</p>
+<ul>
+<li>
+<p>Unary Messages -- These are <em>more</em> than one unicode code point long, and take no parameters, and have no colon after them.</p>
+</li>
+<li>
+<p>Binary Messages -- These are either exactly one unicode code point long, or are equal to<code>::</code> , or are composed of any of <code>=+-*&amp;%$@~&lt;&gt;?;</code>. these take a single argument.</p>
+</li>
+<li>
+<p>Keyword Messages -- These are arbitrarily long names, separated by colons</p>
+</li>
+</ul>
+<p>Examples for each follow:</p>
+<ul>
+<li>Unary: <code>2 sin</code> or <code>2 toString</code> or <code>'test' reverse</code></li>
+<li>Binary: <code>2 + 3</code> or <code>True | False</code> or <code>'te%st' % ['s']</code></li>
+<li>Keyword: <code>2 between: 0 and: 3</code> or <code>True either: blk0 or: blk1</code> or <code>Array join: ', '</code></li>
+</ul>
+<h3><a class="header" href="#basic-messages-for-the-number-objects" id="basic-messages-for-the-number-objects">Basic messages for the Number objects</a></h3>
+<ul>
+<li>
+<p>Binary <code>+</code></p>
+<ul>
+<li>Adds something to a number
+<ul>
+<li>Normally operates on Strings and Numbers</li>
+</ul>
+</li>
+<li><code>3 + 5</code> gives <code>8</code>. <code>3 + 'test'</code> gives <code>'3test'</code>
+<ul>
+<li>Note that in no possible scenario a string would be implicitly cast to a number.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Binary <code>-</code></p>
+<ul>
+<li>Subtracts a number from another</li>
+<li><code>10 - 8</code> gives <code>2</code></li>
+</ul>
+</li>
+<li>
+<p>Binary <code>*</code></p>
+<ul>
+<li>Multiplies a number by another</li>
+<li><code>2 * 3</code> gives <code>6</code></li>
+</ul>
+</li>
+<li>
+<p>Keyword <code>pow:</code></p>
+<ul>
+<li>raises a number to a numeric power</li>
+<li><code>2 pow: 3</code> gives <code>8</code></li>
+</ul>
+</li>
+</ul>
+<p>Tip:<br />
+To see all the Number methods, type <code>:!m Number</code> in the interactive interpreter</p>
+<h3><a class="header" href="#comparing-two-numbers" id="comparing-two-numbers">Comparing two numbers</a></h3>
+<p>The method names are <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=:</code>, <code>&lt;=:</code>, <code>=</code>, <code>!=:</code></p>
+<p>equality <em>can</em> be tested with the alias method <code>equals:</code>, However, when overriding equality, only <code>=</code> must be overridden.</p>
+<h3><a class="header" href="#shortcuts-for-number-manipulations" id="shortcuts-for-number-manipulations">Shortcuts for number manipulations</a></h3>
+<p>The methods <code>+=:</code>, <code>*=:</code>, <code>-=:</code>, <code>/=:</code> exist, but they change the object itself, so any instance of that object will have a different value.</p>
+<pre><code class="language-ruby">var a is 123.
+var b is a.
+
+a -=: 3.
+
+Pen writeln: b. #Prints 120
+</code></pre>
+<h3><a class="header" href="#evaluation-order" id="evaluation-order">Evaluation Order</a></h3>
+<p>The generic order of evaluation is</p>
+<ol>
+<li>The receiver</li>
+<li>The first argument (if present)</li>
+<li>The second argument (if present)</li>
+<li>and so on</li>
+</ol>
+<p>Parens are treated normally.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="basics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="control-flow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="basics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="control-flow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

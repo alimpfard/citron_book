@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Standard Library - Citron Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="chapter1.html"><strong aria-hidden="true">2.</strong> Dedication</a></li><li><a href="preface.html"><strong aria-hidden="true">3.</strong> Preface</a></li><li><a href="about-citron.html"><strong aria-hidden="true">4.</strong> About Citron</a></li><li><a href="installation.html"><strong aria-hidden="true">5.</strong> Installation</a></li><li><a href="baby-steps.html"><strong aria-hidden="true">6.</strong> Baby Steps!</a></li><li><a href="basics.html"><strong aria-hidden="true">7.</strong> Basics</a></li><li><a href="expressions-and-messages.html"><strong aria-hidden="true">8.</strong> Expressions and Messages</a></li><li><a href="control-flow.html"><strong aria-hidden="true">9.</strong> Control Flow</a></li><li><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a></li><li><a href="intermission-interpreter-commands.html"><strong aria-hidden="true">11.</strong> Intermission: Interpreter Commands</a></li><li><a href="data-structures.html"><strong aria-hidden="true">12.</strong> Data Structures</a></li><li><a href="objects.html"><strong aria-hidden="true">13.</strong> Objects</a></li><li><a href="io.html"><strong aria-hidden="true">14.</strong> IO</a></li><li><a href="exceptions.html"><strong aria-hidden="true">15.</strong> Exceptions</a></li><li><a href="libraryimports.html"><strong aria-hidden="true">16.</strong> Library/Imports</a></li><li><a href="standard-library.html" class="active"><strong aria-hidden="true">17.</strong> Standard Library</a></li><li><a href="parse-time-meta-functions.html"><strong aria-hidden="true">18.</strong> Meta-functions</a></li><li><a href="parser-pragmas.html"><strong aria-hidden="true">19.</strong> Parser Pragmas</a></li><li><a href="scratchpad.html"><strong aria-hidden="true">20.</strong> Scratchpad</a></li><li><a href="inline-assembly-blocks.html"><strong aria-hidden="true">21.</strong> Inline Assembly Blocks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Citron Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#the-standard-library" id="the-standard-library">The standard library</a></h2>
+<p>The library is still a work in progress, but it should have the basic needs, and facilities to interface C APIs for less common needs.</p>
+<p>The layout of the library closely resembles Haskell's, with the library being split into several categories.</p>
+<p>The current categories (as of Citron 0.0.8) are:</p>
+<ul>
+<li>AST : contains simple interfaces to change or view the AST of a program</li>
+<li>Control : contains various modules to handle or change the program control flow</li>
+<li>Data : contains modules for data structures</li>
+<li>Executable : executable modules, which can be run with <code>citron -m &lt;name&gt;</code></li>
+<li>Extensions : loads the old extensions (deprecated)</li>
+<li>Foreign : contains modules that handle the foreign functions interfacing</li>
+<li>Functional : contains modules that allow for a more functional style of coding</li>
+<li>Graphics : graphical things</li>
+<li>GUI : modules for creation and handling of user interfaces</li>
+<li>Net : modules that handle sockets and networks</li>
+<li>Utils : various utilities</li>
+</ul>
+<h3><a class="header" href="#the-control-category" id="the-control-category">The Control category</a></h3>
+<ul>
+<li>Applicative : Adds several method to CodeBlock for convenience, for instance <code>apply:</code> and <code>compose:</code></li>
+<li>Arrow : Adds an arrow method to Object to resolve methods and properties</li>
+<li>Class : WIP module that adds classification (To be replaced by Categorization)</li>
+<li>Error : Several Basic error types, implemented for your convenience</li>
+<li>Method : An object that generates generic message sender methods</li>
+<li>MethodResolve : A way to extract methods (raw, or with refs) from objects, and use them as code blocks</li>
+</ul>
+<h3><a class="header" href="#the-data-category" id="the-data-category">The Data category</a></h3>
+<ul>
+<li>Array : mostly deprecated stuff. subject to removal</li>
+<li>IO : /StringIO -&gt; Fake strings as files.</li>
+<li>Iterator : Deprecated. Use <code>Generator</code> instead</li>
+<li>List : Implementation of LinkedLists (for whatever reason)</li>
+<li>Map : simplify your use of Maps</li>
+<li>Range : Non-lazy list generators</li>
+<li>Ratio : Fractions as ratios</li>
+<li>Set</li>
+<li>
+<ul>
+<li>/HashSet : Implementation of HashSets</li>
+<li>/BloomFilter : Implementation of BloomFilters </li>
+</ul>
+</li>
+<li>String : Nothing.</li>
+<li>SwitchCase : Generate a map of alternatives and execute one of them.</li>
+</ul>
+<h3><a class="header" href="#the-functional-category" id="the-functional-category">The Functional category</a></h3>
+<ul>
+<li>Alias : common functions for common messages (e.g. <code>+</code> as a polymorphic function)</li>
+<li>Applicative</li>
+<li>
+<ul>
+<li>/Maybe -&gt; The Maybe monad as an applicative</li>
+</ul>
+</li>
+<li>Category</li>
+<li>
+<ul>
+<li>Array -&gt; Arrays as composable objects</li>
+<li>Block -&gt; Functions as composable objects</li>
+</ul>
+</li>
+<li>Monad : semi context-aware entities that wrap a state</li>
+<li>TypeClass : The definition of all the above things, and a few common functions</li>
+<li>PatternMatch : Adds a Object::'match:', and a helper <code>match</code> function</li>
+<li>
+<ul>
+<li>More of this in its own page</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#the-executable-category" id="the-executable-category">The Executable category</a></h3>
+<ul>
+<li>cpm : A package manager. read its help with <code>citron -m cpm</code></li>
+</ul>
+<h3><a class="header" href="#the-foreignc-category" id="the-foreignc-category">The Foreign/C category</a></h3>
+<p>This category is dedicated to interfacing foreign functions, and has a complementary plugin (libctrctypes.so)</p>
+<ul>
+<li>Alloc : Allocate raw memory with specific sizes</li>
+<li>C_Types : common import with names for common C types</li>
+<li>errno : module to handle C errno</li>
+<li>NamedStruct : Structs with named members</li>
+<li>PackedArray : Contiguous Array with uniform native types</li>
+<li>Signal : Handle or trade signals with other programs</li>
+</ul>
+<p>TODO: Finish this page</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="libraryimports.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="parse-time-meta-functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="libraryimports.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="parse-time-meta-functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

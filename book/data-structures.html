@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Structures - Citron Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="chapter1.html"><strong aria-hidden="true">2.</strong> Dedication</a></li><li><a href="preface.html"><strong aria-hidden="true">3.</strong> Preface</a></li><li><a href="about-citron.html"><strong aria-hidden="true">4.</strong> About Citron</a></li><li><a href="installation.html"><strong aria-hidden="true">5.</strong> Installation</a></li><li><a href="baby-steps.html"><strong aria-hidden="true">6.</strong> Baby Steps!</a></li><li><a href="basics.html"><strong aria-hidden="true">7.</strong> Basics</a></li><li><a href="expressions-and-messages.html"><strong aria-hidden="true">8.</strong> Expressions and Messages</a></li><li><a href="control-flow.html"><strong aria-hidden="true">9.</strong> Control Flow</a></li><li><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a></li><li><a href="intermission-interpreter-commands.html"><strong aria-hidden="true">11.</strong> Intermission: Interpreter Commands</a></li><li><a href="data-structures.html" class="active"><strong aria-hidden="true">12.</strong> Data Structures</a></li><li><a href="objects.html"><strong aria-hidden="true">13.</strong> Objects</a></li><li><a href="io.html"><strong aria-hidden="true">14.</strong> IO</a></li><li><a href="exceptions.html"><strong aria-hidden="true">15.</strong> Exceptions</a></li><li><a href="libraryimports.html"><strong aria-hidden="true">16.</strong> Library/Imports</a></li><li><a href="standard-library.html"><strong aria-hidden="true">17.</strong> Standard Library</a></li><li><a href="parse-time-meta-functions.html"><strong aria-hidden="true">18.</strong> Meta-functions</a></li><li><a href="parser-pragmas.html"><strong aria-hidden="true">19.</strong> Parser Pragmas</a></li><li><a href="scratchpad.html"><strong aria-hidden="true">20.</strong> Scratchpad</a></li><li><a href="inline-assembly-blocks.html"><strong aria-hidden="true">21.</strong> Inline Assembly Blocks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Citron Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#data-structures" id="data-structures">Data Structures</a></h2>
+<p>There are three basic builtin <em>native</em> structures in Citron - <em>Array</em>, <em>Tuple</em> and <em>Map</em></p>
+<p>which are further extended by non-native extensions - <em>Set</em> and <em>Generator</em></p>
+<h3><a class="header" href="#array" id="array">Array</a></h3>
+<p><code>Array</code> is basically a list of values, implemented as a contiguous array.</p>
+<p>Its' elements can have any type, and it can be created literally by the <code>push:</code> method.</p>
+<p><code>Array new push: 3, push: 'test', push: Nil</code></p>
+<p>or with a shorthand:</p>
+<p><code>Array &lt; 3 ; 'test' ; Nil</code></p>
+<h4><a class="header" href="#basic-example" id="basic-example">Basic example</a></h4>
+<pre><code class="language-py">var shoplist := Array &lt; 'apple' ; 'mango' ; 'pure chocolate' ; 'old memes'.
+
+Pen writeln: 'There are ' + (shoplist count) + ' items to buy.'.
+Pen writeln: 'Those items are: %:L' % [' ', shoplist].
+
+Pen writeln: 'I also want some programming socks!'.
+
+shoplist push: 'programming socks'.
+
+Pen write: 'Now I have to buy all of these shticks:\n'.
+shoplist each: {:idx:name
+    Pen writeln: '\t$$idx - $$name'.
+}.
+
+Pen write: 'Such a bad list, let me sort it first: '.
+shoplist is shoplist sort: {:a:b 
+    # now compare items a and b
+    ^(a length) &gt; (b length). #Whichever has a longer name last
+}.
+Pen writeln: '%L' % [shoplist].
+
+Pen writeln: 'I have bought this trash now: %s, and I have these left to buy: %L' % [shoplist shift, shoplist].
+</code></pre>
+<p>Which should give the output</p>
+<pre><code>There are 4 items to buy.
+Those items are: apple mango pure chocolate old memes
+I also want some programming socks!
+Now I have to buy all of these shticks:
+        0 - apple
+        1 - mango
+        2 - pure chocolate
+        3 - old memes
+        4 - programming socks
+Such a bad list, let me sort it first: apple, mango, old memes, pure chocolate, programming socks
+I have bought this trash now: apple, and I have these left to buy: mango, old memes, pure chocolate, programming socks
+</code></pre>
+<h3><a class="header" href="#tuple" id="tuple">Tuple</a></h3>
+<p>Tuples are - much like other languages that have them - like immutable arrays</p>
+<p>Their syntax is quite simple: <code>[ element0, element1 ]</code></p>
+<h4><a class="header" href="#basic-example-1" id="basic-example-1">Basic example</a></h4>
+<pre><code class="language-ruby">var zoo is ['level-headed lion', 'crazy snek', 'memeified pinguin'].
+Pen writeln: 'There are %d animals in this zoo' % [zoo count].
+
+#Any attempt at changing them deegrades them to an Array (or throws an exception)
+var zoo1 is ['anime-loving pinguin'] + zoo.
+Pen writeln: 'This zoo of %s is a very meme-like zoo, but this %s zoo is not!' % [zoo1, zoo]. #They retain their tuple-ness when printed literally
+
+#as normal, degraded tuples are just arrays
+Pen writeln: zoo1 pop.
+
+#But don't even try to pop something off them or such
+Pen writeln: zoo pop.
+</code></pre>
+<h3><a class="header" href="#output" id="output">Output</a></h3>
+<pre><code>There are 3 animals in this zoo
+This zoo of Array ← 'anime-loving pinguin' ; 'level-headed lion' ; 'crazy snek' ; 'memeified pinguin' is a very meme-like zoo, but this ['level-headed lion', 'crazy snek', 'memeified pinguin'] zoo is not!
+memeified pinguin
+Uncaught error has occurred.
+Cannot change immutable array's structure
+#2 pop (test.ctr: 12)
+#1 writeln: (test.ctr: 12)
+</code></pre>
+<h2><a class="header" href="#map" id="map">Map</a></h2>
+<p>Maps are implemented as HashMaps, and respect the hash method provided by the object <code>object::'iHash'</code></p>
+<p>They do not have any literals associated with them.</p>
+<h5><a class="header" href="#example" id="example">Example</a></h5>
+<pre><code class="language-ruby">#They can be either constructed with Map::'put:at:'
+var map is Map new put: 'World' at: 'Hello', put: 'Fish' at: 'Dead'.
+#Or with Map::'cnew:'
+var map1 is Map cnew: {
+    Hello =&gt; 'World'.
+    Dead =&gt; 'Fish'.
+}.
+#Or with Map::'fromArray:'
+var map2 is Map fromArray: [
+    ['Hello', 'World'],
+    ['Dead', 'Fish']
+].
+Pen writeln: 'They serialize upon printing by default:\n' + map.
+
+# You can add, modify, or remove assocs
+map put: 'Guy' at: 'Dead'.
+#That's sad
+map deleteAt: 'Dead'.
+
+#They can contain any object that implements iHash
+map put: 1 at: 2, put: '1' at: 3, put: map at: 4. #Even themselves
+
+Pen writeln: map.
+
+#They can be iterated over:
+map each: {:key:value
+    Pen writeln: '%s, %s' % [key, value].
+}.
+
+#Or mapped to a map with different values
+map2 is map fmap: \:key:value key + ', ' + value.
+
+Pen writeln: map2.
+</code></pre>
+<h4><a class="header" href="#output-1" id="output-1">Output</a></h4>
+<pre><code>They serialize upon printing by default:
+(Map new) put:'Fish' at:'Dead', put:'World' at:'Hello'
+(Map new) put:':selfReference:' at:4, put:'1' at:3, put:1 at:2, put:'World' at:'Hello'
+4, (Map new) put:':selfReference:' at:4, put:'1' at:3, put:1 at:2, put:'World' at:'Hello'
+3, 1
+2, 1
+Hello, World
+(Map new) put:'Hello, World' at:'Hello', put:'2, 1' at:2, put:'3, 1' at:3, put:'4, (Map new) put:\':selfReference:\' at:4, put:\'1\' at:3, put:1 at:2, put:\'World\' at:\'Hello\'' at:4
+</code></pre>
+<h1><a class="header" href="#set" id="set">Set</a></h1>
+<p>Sets are implemented basically as Maps, without values (they have a fixed value, which is shared between all sets).</p>
+<p>No literals.</p>
+<h4><a class="header" href="#example-1" id="example-1">Example</a></h4>
+<pre><code class="language-ruby"># HashSet
+import Library/Data/Set/HashSet: 'HashSet'.
+# or as 'Set':
+# import Library/Data/Set/HashSet: { HashSet =&gt; 'Set'. }
+
+var set is HashSet new. # =&gt; {}
+set add: 1, add: 2. # =&gt; {2, 1}
+
+# Or maybe if you have a bunch
+set addAll: ['test', 3]. # =&gt; {3, 'test', 2, 1}
+
+# Remove an element
+set remove: 'test'. # =&gt; {3, 2, 1}
+
+# Check if an element exists
+set contains: 'test'. # =&gt; False
+
+# Bloom Filter
+import Library/Data/Set/BloomFilter: 'BloomFilter'.
+
+# These sets are neat, they provide a definite not-existence answer only
+# That is, you cannot retrieve data from them, nor can you reliably remove data from them
+# But they only contain a Number, and can be a fast low-confidence filter
+
+var bf is BloomFilter new.
+bf add: 'test', add: 'something else', add: 64. # =&gt; [BloomFilter]
+
+bf contains: 4. # =&gt; False
+bf contains: 'test'. # =&gt; True
+</code></pre>
+<h1><a class="header" href="#generators" id="generators">Generators</a></h1>
+<p>Generators are lazy list generators, they have a few helpful basic functionalities as well.</p>
+<p><code>Number..Number</code> and <code>Number..Number..Number</code> exists as a literal (see example)</p>
+<h3><a class="header" href="#example-2" id="example-2">Example</a></h3>
+<pre><code class="language-ruby"># You can make a simple step generator with numbers:
+var gen0 is 0..10. # =&gt; [StepGenerator]
+# With a step value
+var gen1 is 0..2..10. # =&gt; [StepGenerator]
+
+# Or through messages to Generator
+var gen2 is Generator from: 0 to: 10.
+var gen3 is Generator from: 0 to: 10 step: 2.
+var gen4 is Generator repeat: Nil. # This will just make `Nil's forever, it's useful to map
+var gen5 is Generator elementsOf: [1,2,3,4]. # Makes a generator from a collection (Array,Map,String)
+
+# You can get the next value
+gen0 next. # =&gt; 0
+gen0 next. # =&gt; 1
+
+# You can map them to a new generator
+var gen6 is gen0 fmap: \:x x + 3.
+# Note that advancing one will advance the other too
+gen6 next. # =&gt; 5
+gen0 next. # =&gt; 3
+
+# You can return a generator from a mapping, and `inext' will expand it
+var gen7 is gen4 fmap: \:_ gen0 copy. # make the elements of gen0. forever.
+
+gen7 inext. # =&gt; 4
+gen7 inext. # =&gt; 5
+(1..10) fmap: \:_ gen7 inext, toArray. # =&gt; Array ← 6 ; 7 ; 8 ; 9 ; 10 ; 6 ; 7 ; 8 ; 9 ; 10
+
+# You can break in the middle of a mapping too, which will terminate the generator
+</code></pre>
+<h1><a class="header" href="#list-comprehensions" id="list-comprehensions">List Comprehensions</a></h1>
+<p>Everyone likes list comprehensions, so here, you can have them too.</p>
+<p>Literal: too many to list, take a look at the example</p>
+<h4><a class="header" href="#example-3" id="example-3">Example</a></h4>
+<pre><code class="language-ruby">var list0 is [x,, 1..10]. # Free variables are bound in order
+# =&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# You can specify any number of predicates
+list0 is [x,, 1..10,, (x mod: 4, = 0)]. # Only multiples of 4
+# =&gt; [4, 8]
+
+list0 is [x,, 1..10,, (x mod: 4, = 0), (x &gt; 4)]. # only multiples of 4 bigger then 4
+# =&gt; [8]
+
+# You can do without a source too
+var conditionally10 is [10,,, False]. # =&gt; []
+# Note the 3 commas
+
+var a is 10.
+var list1 is [a + x,, 1..3]. # bound names stay as they are
+# =&gt; [11, 12, 13]
+
+# More than one source
+var list2 is [x + y,, [1,2,3], [5,6,7]]. # =&gt; Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 8 ; 9 ; 10
+var list3 is [x + y,, [1,2,3], [5,6,7],, x &gt; y]. # =&gt; []
+var list4 is [x + y,, 1..3, 5..7]. # =&gt; Array ← 6 ; 7 ; 8 ; 7 ; 8 ; 9 ; 8 ; 9 ; 10
+
+# You can specify the names as well
+var list5 is [x + y,, (y: [1,2,3]), (x: [5,6,7]),, y &lt; x, (x mod: y, &lt; 1)]. # =&gt; Array ← 6 ; 7 ; 8 ; 8 ; 9
+var list6 is [x + y,, (x: 1..3), (y: 5..7),, y - x &lt; 5] # =&gt; Array ← 6 ; 7 ; 8 ; 8 ; 9 ; 10
+
+# You can return any citron object
+var dispatch is Map fromArray: [[x, {\:arg arg at: x.}],, 1..5]. # returns a 2-tuple of key and a block that calls its argument with that key
+# =&gt; (Map new) put:([:Block]) at:5, put:([:Block]) at:4, put:([:Block]) at:3, put:([:Block]) at:2, put:([:Block]) at:1
+
+# Now call it!
+dispatch at: 1, applyTo: [1,2,3]. # =&gt; 2
+</code></pre>
+<h1><a class="header" href="#todo-more-strings" id="todo-more-strings">TODO: more Strings</a></h1>
+<p><a href="intermission-interpreter-commands.html">&lt;- Prev</a> <a href="objects.html">Next -&gt;</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="intermission-interpreter-commands.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="intermission-interpreter-commands.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

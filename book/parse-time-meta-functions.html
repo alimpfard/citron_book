@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Meta-functions - Citron Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="chapter1.html"><strong aria-hidden="true">2.</strong> Dedication</a></li><li><a href="preface.html"><strong aria-hidden="true">3.</strong> Preface</a></li><li><a href="about-citron.html"><strong aria-hidden="true">4.</strong> About Citron</a></li><li><a href="installation.html"><strong aria-hidden="true">5.</strong> Installation</a></li><li><a href="baby-steps.html"><strong aria-hidden="true">6.</strong> Baby Steps!</a></li><li><a href="basics.html"><strong aria-hidden="true">7.</strong> Basics</a></li><li><a href="expressions-and-messages.html"><strong aria-hidden="true">8.</strong> Expressions and Messages</a></li><li><a href="control-flow.html"><strong aria-hidden="true">9.</strong> Control Flow</a></li><li><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a></li><li><a href="intermission-interpreter-commands.html"><strong aria-hidden="true">11.</strong> Intermission: Interpreter Commands</a></li><li><a href="data-structures.html"><strong aria-hidden="true">12.</strong> Data Structures</a></li><li><a href="objects.html"><strong aria-hidden="true">13.</strong> Objects</a></li><li><a href="io.html"><strong aria-hidden="true">14.</strong> IO</a></li><li><a href="exceptions.html"><strong aria-hidden="true">15.</strong> Exceptions</a></li><li><a href="libraryimports.html"><strong aria-hidden="true">16.</strong> Library/Imports</a></li><li><a href="standard-library.html"><strong aria-hidden="true">17.</strong> Standard Library</a></li><li><a href="parse-time-meta-functions.html" class="active"><strong aria-hidden="true">18.</strong> Meta-functions</a></li><li><a href="parser-pragmas.html"><strong aria-hidden="true">19.</strong> Parser Pragmas</a></li><li><a href="scratchpad.html"><strong aria-hidden="true">20.</strong> Scratchpad</a></li><li><a href="inline-assembly-blocks.html"><strong aria-hidden="true">21.</strong> Inline Assembly Blocks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Citron Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#meta-functions" id="meta-functions">Meta Functions</a></h2>
+<p>If you've survived this far, congrats; the ride is going to get even crazier from here.</p>
+<p>Meta functions, Basically, allow a function to modify the internal representation of an expression, and optionally return a replacement for it.</p>
+<p>They are in a way modeled and built to remedy the need for macros, but ended up quite a bit more powerful (as they are somewhat context aware)</p>
+<p>Their definition is absolutely the same as every other function, except they do...meta things.</p>
+<p>The basic building blocks are the several compiler intrinsics listed below:</p>
+<ol>
+<li><code>$(expr)</code></li>
+<li><code>$!(expr)</code></li>
+<li><code>$[expr, expr, ...]</code></li>
+<li><code>$'(expr)</code> or <code>$'expr</code></li>
+<li><code>$`(expr)</code> or <code>$`expr</code></li>
+</ol>
+<p>A brief explanation of their behaviour is as follows:</p>
+<ol>
+<li>is replaced by the internal (AST) representation of the expression</li>
+<li>splices the meta-expression back into the code; it is the reverse action of 1 </li>
+<li>is replaced by a tuple containing the AST representation of the contained expressions</li>
+<li>quotes an expression (bare references are converted to symbols)</li>
+<li>escapes a quoted expression and embeds a value into it</li>
+</ol>
+<h4><a class="header" href="#a-simple-example" id="a-simple-example">A simple example</a></h4>
+<pre><code class="language-ruby">var if-then-else is {:ast 
+    ^$!(ast head) either: { #if the first expression evaluates to a truthy value
+        ^$!(ast at: 1). #evaluate the second expression
+    } or: {
+        ^$!(ast at: 2). #otherwise, evaluate the third expression
+    }.
+}.
+var a is Nil.
+
+if-then-else applyTo: 
+    $[ # To get a tuple of expressions
+        1 = 2, # the condition
+        a is 'No Way!', # the if-true branch
+        a is 'That\'s right'. # the if-false branch
+    ].
+# This whole expression will evaluate to the result of &quot;a is 'That\'s right'&quot;, which is the string
+</code></pre>
+<p>Of course, this feels clunky, and looks weird, but there are more ways to deal with metafunctions, in a more elegant way.</p>
+<p>(First, see <a href="/parser-pragmas.html" title="read this first, pleeeeeeeeeease">Parser Pragmas</a>\)</p>
+<p>Through the use of the <code>declare</code> pragma, it is possible to create a function that does not evaluate its arguments before being invoked, but rather explicitly after.</p>
+<h3><a class="header" href="#example" id="example">Example:</a></h3>
+<pre><code class="language-ruby">#:declare lazyev then
+
+# These sorts of functions are always binary
+var letIn is {\:_x:_y
+    $!(_x). # Evaluate the first argument, and discard its value
+    $!(_y). # Evaluate the second argument, and return its value
+}.
+
+(var a is 123) `letIn` (a + 64). # =&gt; 187
+# which is equivalent to the following expression
+letIn applyAll: [$(var a is 123), $(a + 64)]. # =&gt; 187
+
+#:declare lazyev if-then
+
+# let's write if-then in a more elegant format
+var if-then is {\:if:then
+    $!(if) ifTrue: {
+        ^$!(then).
+    }.
+}.
+
+var x is 123.
+
+(x = 123) `if-then` (Pen writeln: 'x really is $$x'). # be careful not to shadow `x' in the if-then definition
+# -&gt; x really is 123
+</code></pre>
+<p>Let's take a look at how PatternMatch's <code>match</code> function works</p>
+<pre><code class="language-ruby">{:self:ast
+
+var done is True.
+var ret is Nil.
+var cblk is thisBlock.
+ast each_v: {:__PMATCH_V0 # For each sub-tuple in the main tuple
+  __PMATCH_V0 is $!(__PMATCH_V0). #Parse the tuple
+  done is True.
+  ret is {
+    self unpack: $!(__PMATCH_V0 head). # Try to unpack the object
+    $!(__PMATCH_V0 tail init) all: {\:__PMATCH_V1 # Then assuming the unpacking worked, check all the guards (if any)
+      Reflect runHere: {^$!(__PMATCH_V1).} forObject: self arguments: [].
+    }, ifFalse: {
+      cblk error: 'guard fail'. # If the guard returned false, let this pmatch fail
+    }.
+    ^Reflect runHere: {^$!(__PMATCH_V0 last).} forObject: self arguments: []. # Assuming everything went well, run the last expression
+  } catch: {:e done is False. }, run. # if anything failed, move on through the tuple
+  done break. # otherwise, stop
+}.
+done ifFalse: { cblk error: 'non-exhaustive pattern match'. }. # if after going through the whole list, we didn't find a suitable match, raise an exception
+^ret. # return the value
+
+}.
+</code></pre>
+<h2><a class="header" href="#comptime---when-you-definitely-want-it-to-be-evaluated-at-comptime" id="comptime---when-you-definitely-want-it-to-be-evaluated-at-comptime"><code>@comptime</code> - when you definitely want it to be evaluated at comptime</a></h2>
+<p>meta functions are nice and all, but there are times that you want to be <em>sure</em> on the code being evaluated at comptime</p>
+<p>a (perhaps deprived) example:</p>
+<pre><code class="language-ruby">20 times: {:i
+    Pen writeln: i factorial.
+}.
+</code></pre>
+<p>You definitely don't want this sort of code if you can avoid it.</p>
+<p>what you can do here is to create a lookup table:</p>
+<pre><code class="language-ruby"># make a lookup table
+@comptime[discard] # the actual value of this doesn't matter
+var lookup-factorial is
+    $($`(Array new: 20, fill: 20 with: \:x x factorial)).
+
+20 times: {:i
+    Pen writeln: (@comptime lookup-factorial) @ i.
+}.
+</code></pre>
+<p>Now all that happens at runtime is a simple array lookup. although this will break should <code>i</code> be out of the bounds.</p>
+<pre><code>1
+1
+2
+6
+24
+120
+720
+5040
+40320
+362880
+3628800
+39916800
+479001600
+6227020800
+87178291200
+1307674368000
+20922789888000
+355687428096000
+6402373705728000
+121645100408832000
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="standard-library.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="parser-pragmas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="standard-library.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="parser-pragmas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
