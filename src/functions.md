@@ -33,7 +33,7 @@ fn is {:self:par
     Pen writeln: par.
     #`self' here is a direct reference to this block
     ^{
-        ^self. #and it still references that block
+        ^const self. #and it still references that block
     }.
 }. #self is implicitly filled, acts as if it never existed
 fn applyTo: 1024. #par gets assigned 1024

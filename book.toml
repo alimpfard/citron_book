@@ -1,0 +1,6 @@
+[book]
+authors = ["AnotherTest"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Citron Book"

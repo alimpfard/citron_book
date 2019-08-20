@@ -109,3 +109,50 @@ done ifFalse: { cblk error: 'non-exhaustive pattern match'. }. # if after going 
 }.
 ```
 
+## `@comptime` - when you definitely want it to be evaluated at comptime
+
+meta functions are nice and all, but there are times that you want to be _sure_ on the code being evaluated at comptime
+
+a (perhaps deprived) example:
+```ruby
+20 times: {:i
+    Pen writeln: i factorial.
+}.
+```
+
+You definitely don't want this sort of code if you can avoid it.
+
+what you can do here is to create a lookup table:
+```ruby
+# make a lookup table
+@comptime[discard] # the actual value of this doesn't matter
+var lookup-factorial is
+    $($`(Array new: 20, fill: 20 with: \:x x factorial)).
+
+20 times: {:i
+    Pen writeln: (@comptime lookup-factorial) @ i.
+}.
+```
+Now all that happens at runtime is a simple array lookup. although this will break should `i` be out of the bounds.
+```
+1
+1
+2
+6
+24
+120
+720
+5040
+40320
+362880
+3628800
+39916800
+479001600
+6227020800
+87178291200
+1307674368000
+20922789888000
+355687428096000
+6402373705728000
+121645100408832000
+```
